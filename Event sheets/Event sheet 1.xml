@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable name="debugText" type="text">&quot;&quot;</variable>
+        <variable name="dist" type="number">0</variable>
+        <event-block>
+            <conditions>
+                <condition id="-2" name="On start of layout" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block>
+                    <conditions>
+                        <condition id="-19" name="Pick all" type="System">
+                            <param id="0" name="Object">head</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="3" name="Set speed" type="head">
+                            <param id="0" name="Speed">200</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="-19" name="Pick all" type="System">
+                            <param id="0" name="Object">segment</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" type="segment" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On key pressed" type="Keyboard">
+                    <param id="0" name="Key">32 (Leer)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" type="head">
+                    <param id="0" name="Object">segment</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="-1" name="Every tick" type="System" />
+                <condition id="-7" name="Compare instance variable" type="segment">
+                    <param id="0" name="Instance variable">range</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">distance(self.X, self.Y, head.X, head.Y)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="-21" name="Rotate toward position" type="segment">
+                    <param id="0" name="Degrees">10</param>
+                    <param id="1" name="X">head(segment.targetSegmentUID).ImagePointX(2)</param>
+                    <param id="2" name="Y">head(segment.targetSegmentUID).ImagePointY(2)</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block>
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" type="segment">
+                            <param id="0" name="Instance variable">targetSegmentUID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">self.headUID</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-21" name="Rotate toward position" type="segment">
+                            <param id="0" name="Degrees">10</param>
+                            <param id="1" name="X">head(segment.targetSegmentUID).ImagePointX(2)</param>
+                            <param id="2" name="Y">head(segment.targetSegmentUID).ImagePointY(2)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block>
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" type="head">
+                                    <param id="0" name="Unique ID">segment.headUID</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="-7" inverted="1" name="Compare instance variable" type="segment">
+                            <param id="0" name="Instance variable">targetSegmentUID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">self.headUID</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" type="System">
+                            <param id="0" name="Variable">debugText</param>
+                            <param id="1" name="Value">&quot;target:&quot; &amp; segment.targetSegmentUID &amp; &quot;, headUID:&quot; &amp; segment.headUID &amp; &quot;, x:&quot; &amp; segment(segment.targetSegmentUID).X</param>
+                        </action>
+                        <action id="-21" name="Rotate toward position" type="segment">
+                            <param id="0" name="Degrees">10</param>
+                            <param id="1" name="X">head(segment.targetSegmentUID).ImagePointX(2)</param>
+                            <param id="2" name="Y">head(segment.targetSegmentUID).ImagePointY(2)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block>
+                            <conditions>
+                                <condition id="-19" name="Pick all" type="System">
+                                    <param id="0" name="Object">segment</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block>
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" type="segment">
+                                            <param id="0" name="Unique ID">segment.targetSegmentUID</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" type="System">
+                                            <param id="0" name="Variable">debugText</param>
+                                            <param id="1" name="Value">&quot;target2:&quot; &amp; segment.targetSegmentUID &amp; &quot;, headUID:&quot; &amp; segment.headUID &amp; &quot;, x:&quot; &amp; segment(segment.targetSegmentUID).X</param>
+                                        </action>
+                                        <action id="-21" name="Rotate toward position" type="segment">
+                                            <param id="0" name="Degrees">10</param>
+                                            <param id="1" name="X">segment.ImagePointX(2)</param>
+                                            <param id="2" name="Y">segment.ImagePointY(2)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block disabled="1">
+            <conditions>
+                <condition disabled="1" id="-1" name="Every tick" type="System" />
+                <condition disabled="1" id="-7" name="Compare instance variable" type="segment">
+                    <param id="0" name="Instance variable">range</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">distance(self.X, self.Y, head.X, head.Y)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="-21" name="Rotate toward position" type="segment">
+                    <param id="0" name="Degrees">10</param>
+                    <param id="1" name="X">head.ImagePointX(2)</param>
+                    <param id="2" name="Y">head.ImagePointY(2)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On collision with another object" type="head">
+                    <param id="0" name="Object">Sprite</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" type="Sprite" />
+            </actions>
+            <sub-events>
+                <event-block>
+                    <conditions>
+                        <condition id="-7" inverted="1" name="Compare instance variable" type="head">
+                            <param id="0" name="Instance variable">numberOfSegments</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" type="System">
+                            <param id="0" name="Object to create">segment</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">segment(head.lastSegementUID).ImagePointX(1)</param>
+                            <param id="3" name="Y">segment(head.lastSegementUID).ImagePointY(1)</param>
+                        </action>
+                        <action id="-10" name="Set value" type="segment">
+                            <param id="0" name="Instance variable">targetSegmentUID</param>
+                            <param id="1" name="Value">head.lastSegementUID</param>
+                        </action>
+                        <action id="-10" name="Set value" type="head">
+                            <param id="0" name="Instance variable">lastSegementUID</param>
+                            <param id="1" name="Value">segment.UID</param>
+                        </action>
+                        <action id="-10" name="Set value" type="segment">
+                            <param id="0" name="Instance variable">headUID</param>
+                            <param id="1" name="Value">head.UID</param>
+                        </action>
+                        <action id="-11" name="Add to" type="head">
+                            <param id="0" name="Instance variable">numberOfSegments</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" type="head">
+                            <param id="0" name="Instance variable">numberOfSegments</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" type="System">
+                            <param id="0" name="Object to create">segment</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">head.ImagePointX(1)</param>
+                            <param id="3" name="Y">head.ImagePointY(1)</param>
+                        </action>
+                        <action id="-10" name="Set value" type="segment">
+                            <param id="0" name="Instance variable">targetSegmentUID</param>
+                            <param id="1" name="Value">head.UID</param>
+                        </action>
+                        <action id="-10" name="Set value" type="head">
+                            <param id="0" name="Instance variable">lastSegementUID</param>
+                            <param id="1" name="Value">segment.UID</param>
+                        </action>
+                        <action id="-10" name="Set value" type="segment">
+                            <param id="0" name="Instance variable">headUID</param>
+                            <param id="1" name="Value">head.UID</param>
+                        </action>
+                        <action id="-11" name="Add to" type="head">
+                            <param id="0" name="Instance variable">numberOfSegments</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1">
+                    <conditions>
+                        <condition disabled="1" id="-13" name="Pick nth instance" type="System">
+                            <param id="0" name="Object">segment</param>
+                            <param id="1" name="Instance">-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="-10" name="Set value" type="head">
+                            <param id="0" name="Instance variable">lastSegementUID</param>
+                            <param id="1" name="Value">segment.IID</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="-13" name="Pick nth instance" type="System">
+                    <param id="0" name="Object">segment</param>
+                    <param id="1" name="Instance">-1</param>
+                </condition>
+            </conditions>
+            <actions />
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="-1" name="Every tick" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" type="Text">
+                    <param id="0" name="Text">&quot;&quot; &amp; debugText</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="-19" name="Pick all" type="System">
+                    <param id="0" name="Object">segment</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable name="local" type="number">0</variable>
+                <event-block>
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" type="segment">
+                            <param id="0" name="Unique ID">segment.targetSegmentUID</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" type="System">
+                            <param id="0" name="Variable">debugText</param>
+                            <param id="1" name="Value">&quot;target2:&quot; &amp; segment.targetSegmentUID &amp; &quot;, headUID:&quot; &amp; segment.headUID &amp; &quot;, x:&quot; &amp; segment(segment.targetSegmentUID).X</param>
+                        </action>
+                        <action id="-21" name="Rotate toward position" type="segment">
+                            <param id="0" name="Degrees">10</param>
+                            <param id="1" name="X">segment.ImagePointX(2)</param>
+                            <param id="2" name="Y">segment.ImagePointY(2)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block disabled="1">
+            <conditions>
+                <condition disabled="1" id="-14" name="Pick by unique ID" type="segment">
+                    <param id="0" name="Unique ID">11</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="-9" name="Set value" type="System">
+                    <param id="0" name="Variable">debugText</param>
+                    <param id="1" name="Value">&quot;target3:&quot; &amp; segment.targetSegmentUID &amp; &quot;, headUID:&quot; &amp; segment.headUID &amp; &quot;, x:&quot; &amp; segment(segment.targetSegmentUID).X</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
