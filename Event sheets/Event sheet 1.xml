@@ -47,9 +47,9 @@
             </conditions>
             <actions>
                 <action id="0" name="Spawn another object" type="head">
-                    <param id="0" name="Object">segment</param>
+                    <param id="0" name="Object">spit</param>
                     <param id="1" name="Layer">0</param>
-                    <param id="2" name="Image point">1</param>
+                    <param id="2" name="Image point">3</param>
                 </action>
             </actions>
         </event-block>
@@ -333,6 +333,21 @@
                     </actions>
                 </event-block>
             </sub-events>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On collision with another object" type="spit">
+                    <param id="0" name="Object">segment</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" type="segment">
+                    <param id="0" name="Object">head</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">3</param>
+                </action>
+                <action id="-9" name="Destroy" type="segment" />
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>
