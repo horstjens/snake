@@ -11,8 +11,8 @@
         <plugin id="Text" version="1">Text</plugin>
     </used-plugins>
     <used-behaviors>
-        <behavior id="EightDir" version="1">8 Direction</behavior>
         <behavior id="Bullet" version="1">Bullet</behavior>
+        <behavior id="EightDir" version="1">8 Direction</behavior>
         <behavior id="wrap" version="1">Wrap</behavior>
     </used-behaviors>
     <configurations>
@@ -38,6 +38,7 @@
                 <instance-variable name="lastSegementUID" type="number" />
                 <instance-variable name="lastSegmentIID" type="number" />
                 <instance-variable name="player_number" type="number" />
+                <instance-variable name="hitpoints" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Wrap">
@@ -96,6 +97,7 @@
                 <instance-variable comment="needed when colliding with a spit, because then the segment should be destroyed and the following segment replaced with a head" name="trailingSegmentIID" type="number" />
                 <instance-variable name="player_number" type="number" />
                 <instance-variable comment="starts with 1 (it gets set to numOfSegments at segment creation); is needed to be able to set the numOfSegments to the head" name="segmentNumberInSnake" type="number" />
+                <instance-variable name="hitpoints" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Wrap">

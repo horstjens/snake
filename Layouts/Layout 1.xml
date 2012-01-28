@@ -35,6 +35,7 @@
                         <lastSegementUID>-1</lastSegementUID>
                         <lastSegmentIID>-1</lastSegmentIID>
                         <player_number>0</player_number>
+                        <hitpoints>10</hitpoints>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Wrap" />
@@ -172,6 +173,7 @@
                         <trailingSegmentIID>-1</trailingSegmentIID>
                         <player_number>0</player_number>
                         <segmentNumberInSnake>1</segmentNumberInSnake>
+                        <hitpoints>5</hitpoints>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Wrap" />
@@ -253,6 +255,7 @@
                         <lastSegementUID>-1</lastSegementUID>
                         <lastSegmentIID>-1</lastSegmentIID>
                         <player_number>1</player_number>
+                        <hitpoints>10</hitpoints>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Wrap" />
