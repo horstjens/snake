@@ -36,6 +36,9 @@
                     </conditions>
                     <actions>
                         <action id="-9" name="Destroy" type="segment" />
+                        <action id="0" name="Log Text" type="ChromeConsole">
+                            <param id="0" name="Data">&quot;destroy segment at startup&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
@@ -78,31 +81,32 @@
                 <action id="2" name="Stop" type="spit" />
             </actions>
         </event-block>
-        <event-block>
+        <event-block disabled="1">
             <conditions>
-                <condition id="0" name="On key pressed" type="Keyboard">
+                <condition disabled="1" id="0" name="On key pressed" type="Keyboard">
                     <param id="0" name="Key">16 (Umschalt)</param>
                 </condition>
-                <condition id="-7" name="Compare instance variable" type="head">
+                <condition disabled="1" id="-7" name="Compare instance variable" type="head">
                     <param id="0" name="Instance variable">player_number</param>
                     <param id="1" name="Comparison">0</param>
-                    <param id="2" name="Value">1</param>
+                    <param id="2" name="Value">0</param>
                 </condition>
             </conditions>
             <actions>
-                <action id="0" name="Spawn another object" type="head">
+                <action disabled="1" id="0" name="Spawn another object" type="head">
                     <param id="0" name="Object">spit</param>
                     <param id="1" name="Layer">0</param>
                     <param id="2" name="Image point">3</param>
                 </action>
-                <action id="5" name="Set frame" type="spit">
+                <action disabled="1" id="5" name="Set frame" type="spit">
                     <param id="0" name="Frame number">head.player_number</param>
                 </action>
-                <action id="2" name="Stop" type="spit" />
+                <action disabled="1" id="2" name="Stop" type="spit" />
             </actions>
         </event-block>
         <event-group description="" title="Movement">
             <sub-events>
+                <comment>not sure if pick all segments is needed? should not be needed, because check for instance variables</comment>
                 <event-block>
                     <conditions>
                         <condition id="-1" name="Every tick" type="System" />
@@ -111,20 +115,27 @@
                         <condition disabled="1" id="1" name="Is overlapping another object" type="segment">
                             <param id="0" name="Object">head</param>
                         </condition>
+                        <condition id="-19" name="Pick all" type="System">
+                            <param id="0" name="Object">segment</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action disabled="1" id="-17" name="Move forward" type="segment">
                             <param id="0" name="Distance">1</param>
                         </action>
+                        <action id="0" name="Log Text" type="ChromeConsole">
+                            <param id="0" name="Data">segment(1).X &amp; &quot; targetSegment uid&quot; &amp; segment(1).targetSegmentUID &amp; &quot; iid&quot; &amp; segment(1).targetSegmentIID &amp; &quot; headUid&quot; &amp; segment(1).headUID &amp; &quot; headIid&quot; &amp; segment(1).headIID &amp; &quot; segmentUid&quot; &amp; segment(1).UID &amp; &quot; segmentIid&quot; &amp; segment(1).IID</param>
+                        </action>
                     </actions>
                     <sub-events>
                         <comment>the sub-event for head-picking is easier to understand - but picking another segment is not possible</comment>
+                        <comment>this is the branch if the segment is the first one - directly position to the imagepoint of the head (so no interpolation)</comment>
                         <event-block>
                             <conditions>
                                 <condition id="-7" name="Compare instance variable" type="segment">
                                     <param id="0" name="Instance variable">targetSegmentUID</param>
                                     <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">self.headUID</param>
+                                    <param id="2" name="Value">segment.headUID</param>
                                 </condition>
                                 <condition disabled="1" id="-7" name="Compare instance variable" type="segment">
                                     <param id="0" name="Instance variable">range</param>
@@ -133,30 +144,34 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action disabled="1" id="-21" name="Rotate toward position" type="segment">
+                                <action id="-21" name="Rotate toward position" type="segment">
                                     <param id="0" name="Degrees">10</param>
-                                    <param id="1" name="X">head(segment.targetSegmentUID).ImagePointX(2)</param>
-                                    <param id="2" name="Y">head(segment.targetSegmentUID).ImagePointY(2)</param>
+                                    <param id="1" name="X">head(segment.targetSegmentIID).ImagePointX(2)</param>
+                                    <param id="2" name="Y">head(segment.targetSegmentIID).ImagePointY(2)</param>
+                                </action>
+                                <action id="-3" name="Set position" type="segment">
+                                    <param id="0" name="X">head(segment.targetSegmentIID).ImagePointX(2)</param>
+                                    <param id="1" name="Y">head(segment.targetSegmentIID).ImagePointY(2)</param>
+                                </action>
+                                <action id="0" name="Log Text" type="ChromeConsole">
+                                    <param id="0" name="Data">&quot;segment is the first, these are equal targetSegment uid&quot; &amp; segment.targetSegmentUID &amp; &quot; iid&quot; &amp;  segment.targetSegmentIID &amp; &quot;, segment.headUID: &quot; &amp; segment.headUID &amp; &quot; segmentIID&quot; &amp; segment.IID</param>
                                 </action>
                             </actions>
                             <sub-events>
-                                <event-block>
+                                <comment>ATTENTION: picking does NOT work here, as not all heads of the start segments, but only one would be processed!</comment>
+                                <event-block disabled="1">
                                     <conditions>
-                                        <condition id="-14" name="Pick by unique ID" type="head">
+                                        <condition disabled="1" id="-14" name="Pick by unique ID" type="head">
                                             <param id="0" name="Unique ID">segment.headUID</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-21" name="Rotate toward position" type="segment">
+                                        <action disabled="1" id="-21" name="Rotate toward position" type="segment">
                                             <param id="0" name="Degrees">10</param>
                                             <param id="1" name="X">head.ImagePointX(2)</param>
                                             <param id="2" name="Y">head.ImagePointY(2)</param>
                                         </action>
                                         <action disabled="1" id="-3" name="Set position" type="segment">
-                                            <param id="0" name="X">lerp(self.X, head.ImagePointX(2), 1-0.5^dt)</param>
-                                            <param id="1" name="Y">lerp(self.Y, head.ImagePointY(2), 1-0.5^dt)</param>
-                                        </action>
-                                        <action id="-3" name="Set position" type="segment">
                                             <param id="0" name="X">head.ImagePointX(2)</param>
                                             <param id="1" name="Y">head.ImagePointY(2)</param>
                                         </action>
@@ -164,15 +179,20 @@
                                 </event-block>
                             </sub-events>
                         </event-block>
+                        <comment>branch for all segments not being the first of head</comment>
                         <event-block>
                             <conditions>
                                 <condition id="-7" inverted="1" name="Compare instance variable" type="segment">
                                     <param id="0" name="Instance variable">targetSegmentUID</param>
                                     <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">self.headUID</param>
+                                    <param id="2" name="Value">segment.headUID</param>
                                 </condition>
                             </conditions>
-                            <actions />
+                            <actions>
+                                <action id="0" name="Log Text" type="ChromeConsole">
+                                    <param id="0" name="Data">&quot;moving to target uid&quot; &amp; segment.targetSegmentUID &amp; &quot; iid&quot; &amp;  segment.targetSegmentIID &amp;&quot;, segment.headUID: &quot; &amp; segment.headUID &amp; &quot; segmentIID&quot; &amp; segment.IID</param>
+                                </action>
+                            </actions>
                             <sub-events>
                                 <event-block>
                                     <conditions>
@@ -205,6 +225,7 @@
                                         </action>
                                     </actions>
                                 </event-block>
+                                <comment>this forces the warp </comment>
                                 <event-block>
                                     <conditions>
                                         <condition id="-7" inverted="1" name="Compare instance variable" type="segment">
@@ -249,8 +270,8 @@
                         <action id="-3" name="Create object" type="System">
                             <param id="0" name="Object to create">segment</param>
                             <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">segment(head.lastSegementUID).ImagePointX(1)</param>
-                            <param id="3" name="Y">segment(head.lastSegementUID).ImagePointY(1)</param>
+                            <param id="2" name="X">segment(head.lastSegmentIID).ImagePointX(1)</param>
+                            <param id="3" name="Y">segment(head.lastSegmentIID).ImagePointY(1)</param>
                         </action>
                         <action id="-10" name="Set value" type="segment">
                             <param id="0" name="Instance variable">targetSegmentUID</param>
@@ -296,6 +317,9 @@
                             <param id="0" name="Instance variable">player_number</param>
                             <param id="1" name="Value">head.player_number</param>
                         </action>
+                        <action id="0" name="Log Text" type="ChromeConsole">
+                            <param id="0" name="Data">&quot;___new segment for non-empty snake with head iid&quot; &amp; head.IID &amp; &quot; uid&quot; &amp; head.UID &amp; &quot;, segNum: &quot; &amp; head.numberOfSegments &amp; &quot;, created IID: &quot; &amp; segment.IID &amp; &quot; uid&quot; &amp; segment.UID</param>
+                        </action>
                     </actions>
                     <sub-events>
                         <event-block>
@@ -337,18 +361,11 @@
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block>
-                                    <conditions />
-                                    <actions />
-                                </event-block>
                             </sub-events>
-                        </event-block>
-                        <event-block>
-                            <conditions />
-                            <actions />
                         </event-block>
                     </sub-events>
                 </event-block>
+                <comment>this handles the case if the snake has no segments</comment>
                 <event-block>
                     <conditions>
                         <condition id="-7" name="Compare instance variable" type="head">
@@ -396,6 +413,13 @@
                             <param id="0" name="Instance variable">segmentNumberInSnake</param>
                             <param id="1" name="Value">head.numberOfSegments</param>
                         </action>
+                        <action id="-10" name="Set value" type="segment">
+                            <param id="0" name="Instance variable">player_number</param>
+                            <param id="1" name="Value">head.player_number</param>
+                        </action>
+                        <action id="0" name="Log Text" type="ChromeConsole">
+                            <param id="0" name="Data">&quot;___new segment for empty snake with head iid&quot; &amp; head.IID &amp; &quot; uid&quot; &amp; head.UID &amp; &quot;, segNum(should be 1): &quot; &amp; head.numberOfSegments &amp; &quot;, created IID: &quot; &amp; segment.IID &amp; &quot; uid&quot; &amp; segment.UID</param>
+                        </action>
                     </actions>
                     <sub-events>
                         <event-block>
@@ -411,10 +435,6 @@
                                     <param id="0" name="Frame number">1</param>
                                 </action>
                             </actions>
-                        </event-block>
-                        <event-block>
-                            <conditions />
-                            <actions />
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -436,15 +456,6 @@
         </event-block>
         <event-block>
             <conditions>
-                <condition id="-13" name="Pick nth instance" type="System">
-                    <param id="0" name="Object">segment</param>
-                    <param id="1" name="Instance">-1</param>
-                </condition>
-            </conditions>
-            <actions />
-        </event-block>
-        <event-block>
-            <conditions>
                 <condition id="-1" name="Every tick" type="System" />
             </conditions>
             <actions>
@@ -460,7 +471,7 @@
                 <variable name="pre2IID" type="number">-1</variable>
                 <variable comment="one to the front, needed to set the new lastSegmentUID for the old head" name="front1IID" type="number">-1</variable>
                 <variable name="collidedHeadIID" type="number">-1</variable>
-                <variable name="segmentNumberInSnake" type="number">-1</variable>
+                <variable name="localSegmentNumberInSnake" type="number">-1</variable>
                 <event-block>
                     <conditions>
                         <condition id="0" name="On collision with another object" type="spit">
@@ -488,7 +499,7 @@
                             <param id="1" name="Value">segment.targetSegmentIID</param>
                         </action>
                         <action id="-9" name="Set value" type="System">
-                            <param id="0" name="Variable">segmentNumberInSnake</param>
+                            <param id="0" name="Variable">localSegmentNumberInSnake</param>
                             <param id="1" name="Value">segment.segmentNumberInSnake</param>
                         </action>
                         <action id="-9" name="Destroy" type="segment" />
@@ -507,6 +518,7 @@
                                 <variable name="createdHeadUID" type="number">-1</variable>
                                 <variable name="createdHeadIID" type="number">-1</variable>
                                 <comment>if pre1IID is !=-1, this means there is at least one more trailing segment</comment>
+                                <comment>the new head is created at the position of the previous segment(if there is one)</comment>
                                 <event-block>
                                     <conditions>
                                         <condition id="-14" name="Compare variable" type="System">
@@ -551,6 +563,9 @@
                                                     <param id="1" name="Value">segment.player_number</param>
                                                 </action>
                                                 <action id="2" name="Stop" type="head" />
+                                                <action id="0" name="Log Text" type="ChromeConsole">
+                                                    <param id="0" name="Data">&quot;create head with UID&quot; &amp; head.UID &amp; &quot;, IID: &quot; &amp; head.IID &amp; &quot;, segments: &quot; &amp; head.numberOfSegments</param>
+                                                </action>
                                             </actions>
                                         </event-block>
                                     </sub-events>
@@ -566,6 +581,7 @@
                                     </conditions>
                                     <actions />
                                     <sub-events>
+                                        <variable name="segmentIIDIterator" type="number">-1</variable>
                                         <event-block>
                                             <conditions>
                                                 <condition id="-13" name="Pick nth instance" type="System">
@@ -593,7 +609,113 @@
                                                     <param id="0" name="Instance variable">headIID</param>
                                                     <param id="1" name="Value">createdHeadIID</param>
                                                 </action>
+                                                <action id="-9" name="Set value" type="System">
+                                                    <param id="0" name="Variable">segmentIIDIterator</param>
+                                                    <param id="1" name="Value">pre2IID</param>
+                                                </action>
+                                                <action id="0" name="Log Text" type="ChromeConsole">
+                                                    <param id="0" name="Data">&quot;set target and head of segment to IID: &quot; &amp; createdHeadIID</param>
+                                                </action>
                                             </actions>
+                                        </event-block>
+                                        <comment>iterate over all trailing segments that have a new head</comment>
+                                        <event-block>
+                                            <conditions>
+                                                <condition id="-12" name="Repeat" type="System">
+                                                    <param id="0" name="Count">40</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block>
+                                                    <conditions>
+                                                        <condition id="-14" name="Compare variable" type="System">
+                                                            <param id="0" name="Variable">segmentIIDIterator</param>
+                                                            <param id="1" name="Comparison">1</param>
+                                                            <param id="2" name="Value">-1</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Log Text" type="ChromeConsole">
+                                                            <param id="0" name="Data">&quot;iterating over segment iid: &quot; &amp; segmentIIDIterator &amp; &quot;, headIID: &quot; &amp; createdHeadIID</param>
+                                                        </action>
+                                                    </actions>
+                                                    <sub-events>
+                                                        <comment></comment>
+                                                        <event-block>
+                                                            <conditions>
+                                                                <condition id="-13" name="Pick nth instance" type="System">
+                                                                    <param id="0" name="Object">head</param>
+                                                                    <param id="1" name="Instance">createdHeadIID</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-10" name="Set value" type="head">
+                                                                    <param id="0" name="Instance variable">lastSegmentIID</param>
+                                                                    <param id="1" name="Value">segmentIIDIterator</param>
+                                                                </action>
+                                                                <action id="-10" name="Set value" type="head">
+                                                                    <param id="0" name="Instance variable">lastSegementUID</param>
+                                                                    <param id="1" name="Value">segment(segmentIIDIterator).UID</param>
+                                                                </action>
+                                                                <action id="0" name="Log Text" type="ChromeConsole">
+                                                                    <param id="0" name="Data">&quot;numberSegments before inc:&quot; &amp; head.numberOfSegments</param>
+                                                                </action>
+                                                                <action id="-11" name="Add to" type="head">
+                                                                    <param id="0" name="Instance variable">numberOfSegments</param>
+                                                                    <param id="1" name="Value">1</param>
+                                                                </action>
+                                                                <action id="0" name="Log Text" type="ChromeConsole">
+                                                                    <param id="0" name="Data">&quot;numberSegments after inc:&quot; &amp; head.numberOfSegments &amp; &quot; for uid:&quot; &amp; head.UID &amp; &quot;, iid: &quot; &amp;head.IID</param>
+                                                                </action>
+                                                                <action id="0" name="Log Text" type="ChromeConsole">
+                                                                    <param id="0" name="Data">&quot;setting lastSegmentIID to: &quot; &amp; segmentIIDIterator &amp; &quot;, lastSegmentUID to: &quot; &amp; head.lastSegementUID</param>
+                                                                </action>
+                                                                <action id="1" name="Log Object" type="ChromeConsole">
+                                                                    <param id="0" name="Object">head</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <comment>the target needs not to be set, because only the first target changes (the pre2IID) which is done above!</comment>
+                                                        <event-block>
+                                                            <conditions>
+                                                                <condition id="-13" name="Pick nth instance" type="System">
+                                                                    <param id="0" name="Object">segment</param>
+                                                                    <param id="1" name="Instance">segmentIIDIterator</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-9" name="Set value" type="System">
+                                                                    <param id="0" name="Variable">segmentIIDIterator</param>
+                                                                    <param id="1" name="Value">segment.trailingSegmentIID</param>
+                                                                </action>
+                                                                <action id="-10" name="Set value" type="segment">
+                                                                    <param id="0" name="Instance variable">headIID</param>
+                                                                    <param id="1" name="Value">createdHeadIID</param>
+                                                                </action>
+                                                                <action id="-10" name="Set value" type="segment">
+                                                                    <param id="0" name="Instance variable">headUID</param>
+                                                                    <param id="1" name="Value">createdHeadUID</param>
+                                                                </action>
+                                                                <action id="-10" name="Set value" type="segment">
+                                                                    <param id="0" name="Instance variable">segmentNumberInSnake</param>
+                                                                    <param id="1" name="Value">head(createdHeadIID).numberOfSegments</param>
+                                                                </action>
+                                                                <action id="0" name="Log Text" type="ChromeConsole">
+                                                                    <param id="0" name="Data">&quot;setting segmentNumberInSnake: &quot; &amp; segment.segmentNumberInSnake &amp; &quot;, original head number: &quot; &amp; head(createdHeadIID).numberOfSegments &amp; &quot;, head iid: &quot; &amp; createdHeadIID</param>
+                                                                </action>
+                                                                <action id="1" name="Log Object" type="ChromeConsole">
+                                                                    <param id="0" name="Object">segment</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block>
+                                                            <conditions />
+                                                            <actions />
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                            </sub-events>
                                         </event-block>
                                     </sub-events>
                                 </event-block>
@@ -608,7 +730,7 @@
                                     <actions>
                                         <action id="-10" name="Set value" type="head">
                                             <param id="0" name="Instance variable">numberOfSegments</param>
-                                            <param id="1" name="Value">segmentNumberInSnake-1</param>
+                                            <param id="1" name="Value">localSegmentNumberInSnake-1</param>
                                         </action>
                                         <action id="-10" name="Set value" type="head">
                                             <param id="0" name="Instance variable">lastSegmentIID</param>
@@ -626,5 +748,34 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-block>
+            <conditions>
+                <condition id="-1" name="Every tick" type="System" />
+                <condition id="-7" name="Compare instance variable" type="head">
+                    <param id="0" name="Instance variable">player_number</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" type="Text2">
+                    <param id="0" name="Text">&quot;numSegments: &quot; &amp; head.numberOfSegments &amp; &quot;, lastSegIID: &quot; &amp; head.lastSegmentIID &amp; &quot;lastSegUID: &quot; &amp;head.lastSegementUID</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="6" name="On object clicked" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">head</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" type="Text3">
+                    <param id="0" name="Text">&quot;head IID&quot; &amp; head.IID &amp; &quot;, UID&quot; &amp; head.UID &amp; &quot;, numSegments: &quot; &amp; head.numberOfSegments &amp; &quot;, lastSegIID: &quot; &amp; head.lastSegmentIID &amp; &quot;lastSegUID: &quot; &amp;head.lastSegementUID</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

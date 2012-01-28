@@ -7,8 +7,10 @@
     <used-plugins>
         <plugin id="Arr" version="1">Array</plugin>
         <plugin id="Keyboard" version="1">Keyboard</plugin>
+        <plugin id="Mouse" version="1">Mouse</plugin>
         <plugin id="Sprite" version="1">Sprite</plugin>
         <plugin id="Text" version="1">Text</plugin>
+        <plugin id="chromeconsole" version="0.100000001">Chrome Console</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior id="EightDir" version="1">8 Direction</behavior>
@@ -201,6 +203,18 @@
         <object-type name="Text">
             <plugin id="Text" />
         </object-type>
+        <object-type name="ChromeConsole">
+            <plugin id="chromeconsole" />
+        </object-type>
+        <object-type name="Text2">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Text3">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Mouse">
+            <plugin id="Mouse" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder expanded="1">
@@ -212,6 +226,8 @@
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" />
+        <global-instance type="ChromeConsole" />
+        <global-instance type="Mouse" />
     </global-instances>
     <sounds-folder expanded="1" />
     <music-folder expanded="1" />
