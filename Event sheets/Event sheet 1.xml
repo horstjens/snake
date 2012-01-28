@@ -8,7 +8,11 @@
             <conditions>
                 <condition id="-2" name="On start of layout" type="System" />
             </conditions>
-            <actions />
+            <actions>
+                <action behavior="8Direction" id="8" name="Set enabled" type="head">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
             <sub-events>
                 <event-block>
                     <conditions>
@@ -171,11 +175,11 @@
         <event-block>
             <conditions>
                 <condition id="0" name="On collision with another object" type="head">
-                    <param id="0" name="Object">Sprite</param>
+                    <param id="0" name="Object">food</param>
                 </condition>
             </conditions>
             <actions>
-                <action id="-9" name="Destroy" type="Sprite" />
+                <action id="-9" name="Destroy" type="food" />
             </actions>
             <sub-events>
                 <event-block>
@@ -292,6 +296,42 @@
                 </condition>
             </conditions>
             <actions />
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="-1" name="Every tick" type="System" />
+            </conditions>
+            <actions>
+                <action id="-17" name="Move forward" type="head">
+                    <param id="0" name="Distance">3</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block>
+                    <conditions>
+                        <condition id="2" name="Key is down" type="Keyboard">
+                            <param id="0" name="Key">65 (A)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-19" name="Rotate counter-clockwise" type="head">
+                            <param id="0" name="Degrees">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="2" name="Key is down" type="Keyboard">
+                            <param id="0" name="Key">68 (D)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-18" name="Rotate clockwise" type="head">
+                            <param id="0" name="Degrees">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>
