@@ -8,11 +8,11 @@
         <plugin id="Arr" version="1">Array</plugin>
         <plugin id="Keyboard" version="1">Keyboard</plugin>
         <plugin id="Sprite" version="1">Sprite</plugin>
+        <plugin id="Text" version="1">Text</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior id="EightDir" version="1">8 Direction</behavior>
         <behavior id="Bullet" version="1">Bullet</behavior>
-        <behavior id="destroy" version="1">Destroy outside layout</behavior>
         <behavior id="wrap" version="1">Wrap</behavior>
     </used-behaviors>
     <configurations>
@@ -77,6 +77,7 @@
                 <instance-variable name="headUID" type="number" />
                 <instance-variable name="targetSegmentIID" type="number" />
                 <instance-variable name="headIID" type="number" />
+                <instance-variable comment="needed when colliding with a spit, because then the segment should be destroyed and the following segment replaced with a head" name="trailingSegmentIID" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Wrap">
@@ -126,9 +127,6 @@
         <object-type name="spit">
             <plugin id="Sprite" />
             <behaviors>
-                <behavior-type name="DestroyOutsideLayout">
-                    <behavior id="destroy" />
-                </behavior-type>
                 <behavior-type name="Bullet">
                     <behavior id="Bullet" />
                 </behavior-type>
@@ -152,6 +150,9 @@
                     </frame>
                 </animation>
             </animation-folder>
+        </object-type>
+        <object-type name="Text">
+            <plugin id="Text" />
         </object-type>
     </object-folder>
     <families />

@@ -168,6 +168,7 @@
                         <headUID>-1</headUID>
                         <targetSegmentIID>-1</targetSegmentIID>
                         <headIID>-1</headIID>
+                        <trailingSegmentIID>-1</trailingSegmentIID>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Wrap" />
@@ -192,7 +193,6 @@
                         <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="DestroyOutsideLayout" />
                         <behavior-instance type="Bullet">
                             <properties>
                                 <speed>400</speed>
@@ -213,6 +213,28 @@
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Text">
+                    <properties>
+                        <text>Text</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Arial,-16</font>
+                        <color>0,0,0</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                        <hotspot>Top-left</hotspot>
+                    </properties>
+                    <world>
+                        <x>574</x>
+                        <y>33</y>
+                        <z>0</z>
+                        <width>200</width>
+                        <height>30</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
