@@ -6,13 +6,11 @@
     <saved-with-version>7600</saved-with-version>
     <used-plugins>
         <plugin id="Arr" version="1">Array</plugin>
-        <plugin id="Sprite" version="1">Sprite</plugin>
         <plugin id="Keyboard" version="1">Keyboard</plugin>
-        <plugin id="Text" version="1">Text</plugin>
+        <plugin id="Sprite" version="1">Sprite</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior id="EightDir" version="1">8 Direction</behavior>
-        <behavior id="Bullet" version="1">Bullet</behavior>
         <behavior id="Physics" version="1">Physics</behavior>
         <behavior id="wrap" version="1">Wrap</behavior>
     </used-behaviors>
@@ -37,6 +35,7 @@
             <instance-variables>
                 <instance-variable name="numberOfSegments" type="number" />
                 <instance-variable name="lastSegementUID" type="number" />
+                <instance-variable name="lastSegmentIID" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Wrap">
@@ -75,13 +74,11 @@
                 <instance-variable name="range" type="number" />
                 <instance-variable name="headUID" type="number" />
                 <instance-variable name="targetSegmentIID" type="number" />
+                <instance-variable name="headIID" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Wrap">
                     <behavior id="wrap" />
-                </behavior-type>
-                <behavior-type name="Bullet">
-                    <behavior id="Bullet" />
                 </behavior-type>
             </behaviors>
             <animation-folder expanded="1">
@@ -147,9 +144,6 @@
         </object-type>
         <object-type name="Array">
             <plugin id="Arr" />
-        </object-type>
-        <object-type name="Text">
-            <plugin id="Text" />
         </object-type>
     </object-folder>
     <families />
