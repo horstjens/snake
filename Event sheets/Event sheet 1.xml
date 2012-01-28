@@ -416,6 +416,8 @@
                     </conditions>
                     <actions />
                     <sub-events>
+                        <variable name="createdHeadUID" type="number">-1</variable>
+                        <variable name="createdHeadIID" type="number">-1</variable>
                         <event-block>
                             <conditions>
                                 <condition id="-14" name="Compare variable" type="System">
