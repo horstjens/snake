@@ -204,10 +204,6 @@
         <object-type name="Text">
             <plugin id="Text" />
         </object-type>
-        <object-type name="TiledBackground">
-            <plugin id="TiledBg" />
-            <texture />
-        </object-type>
         <object-type name="Mouse">
             <plugin id="Mouse" />
         </object-type>
@@ -247,14 +243,10 @@
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                         <collision-poly>
-                            <point x="0.140625" y="0.140625" />
-                            <point x="0.5" y="0" />
-                            <point x="0.859375" y="0.140625" />
-                            <point x="1" y="0.5" />
-                            <point x="0.859375" y="0.859375" />
-                            <point x="0.5" y="1" />
-                            <point x="0.140625" y="0.859375" />
-                            <point x="0" y="0.5" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                            <point x="0.995" y="0.984375" />
+                            <point x="0.005" y="0.984375" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -266,14 +258,10 @@
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                         <collision-poly>
-                            <point x="0.140625" y="0.140625" />
-                            <point x="0.5" y="0" />
-                            <point x="0.859375" y="0.140625" />
-                            <point x="1" y="0.5" />
-                            <point x="0.859375" y="0.859375" />
-                            <point x="0.5" y="1" />
-                            <point x="0.140625" y="0.859375" />
-                            <point x="0" y="0.5" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                            <point x="0.995" y="0.984375" />
+                            <point x="0.005" y="0.984375" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -293,6 +281,27 @@
                     </frame>
                 </animation>
             </animation-folder>
+        </object-type>
+        <object-type name="Text2">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Text3">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="TiledBackground">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="TiledBackground2">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="TiledBackground3">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="Text4">
+            <plugin id="Text" />
         </object-type>
     </object-folder>
     <families />
