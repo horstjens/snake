@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
+        <include>Event sheet 2</include>
         <variable name="dist" type="number">0</variable>
         <comment>8direction is disabled for testing movement with only 2 buttons</comment>
         <event-block>
