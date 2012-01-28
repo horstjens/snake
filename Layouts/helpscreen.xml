@@ -59,24 +59,6 @@
             <instances>
                 <instance type="Startbutton">
                     <properties>
-                        <text>start 2player game</text>
-                        <tooltip></tooltip>
-                        <initial-visibility>Visible</initial-visibility>
-                        <enabled>Yes</enabled>
-                    </properties>
-                    <world>
-                        <x>501</x>
-                        <y>531</y>
-                        <z>0</z>
-                        <width>191</width>
-                        <height>22</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
-                    </world>
-                </instance>
-                <instance type="Sprite">
-                    <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
@@ -84,6 +66,25 @@
                     <world>
                         <x>558</x>
                         <y>643</y>
+                        <z>0</z>
+                        <width>64</width>
+                        <height>64</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="menubuttonH">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-frame>0</initial-frame>
+                        <effect>(none)</effect>
+                    </properties>
+                    <world>
+                        <x>382</x>
+                        <y>359</y>
                         <z>0</z>
                         <width>64</width>
                         <height>64</height>
