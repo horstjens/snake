@@ -42,8 +42,28 @@
         </event-block>
         <event-block>
             <conditions>
+                <condition id="-6" name="Every X seconds" type="System">
+                    <param id="0" name="Interval (seconds)">3.0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" type="System">
+                    <param id="0" name="Object to create">food</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">random(LayoutWidth)</param>
+                    <param id="3" name="Y">random(LayoutHeight)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
                 <condition id="0" name="On key pressed" type="Keyboard">
                     <param id="0" name="Key">32 (Leer)</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" type="head">
+                    <param id="0" name="Instance variable">player_number</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
                 </condition>
             </conditions>
             <actions>
@@ -52,6 +72,33 @@
                     <param id="1" name="Layer">0</param>
                     <param id="2" name="Image point">3</param>
                 </action>
+                <action id="5" name="Set frame" type="spit">
+                    <param id="0" name="Frame number">head.player_number</param>
+                </action>
+                <action id="2" name="Stop" type="spit" />
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On key pressed" type="Keyboard">
+                    <param id="0" name="Key">16 (Umschalt)</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" type="head">
+                    <param id="0" name="Instance variable">player_number</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" type="head">
+                    <param id="0" name="Object">spit</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">3</param>
+                </action>
+                <action id="5" name="Set frame" type="spit">
+                    <param id="0" name="Frame number">head.player_number</param>
+                </action>
+                <action id="2" name="Stop" type="spit" />
             </actions>
         </event-block>
         <event-group description="" title="Movement">
@@ -499,6 +546,11 @@
                                                     <param id="0" name="Variable">createdHeadUID</param>
                                                     <param id="1" name="Value">head.UID</param>
                                                 </action>
+                                                <action id="-10" name="Set value" type="head">
+                                                    <param id="0" name="Instance variable">player_number</param>
+                                                    <param id="1" name="Value">segment.player_number</param>
+                                                </action>
+                                                <action id="2" name="Stop" type="head" />
                                             </actions>
                                         </event-block>
                                     </sub-events>
