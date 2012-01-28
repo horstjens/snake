@@ -57,25 +57,6 @@
             <opacity>1</opacity>
             <force-own-texture>0</force-own-texture>
             <instances>
-                <instance type="Startbutton">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
-                    </properties>
-                    <world>
-                        <x>558</x>
-                        <y>643</y>
-                        <z>0</z>
-                        <width>64</width>
-                        <height>64</height>
-                        <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
                 <instance type="menubutton">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
