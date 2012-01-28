@@ -57,25 +57,6 @@
             <opacity>1</opacity>
             <force-own-texture>0</force-own-texture>
             <instances>
-                <instance type="Startbutton">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
-                    </properties>
-                    <world>
-                        <x>568</x>
-                        <y>406</y>
-                        <z>0</z>
-                        <width>64</width>
-                        <height>64</height>
-                        <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
                 <instance type="creditbutton">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
@@ -83,10 +64,10 @@
                         <effect>(none)</effect>
                     </properties>
                     <world>
-                        <x>649</x>
-                        <y>404</y>
+                        <x>618</x>
+                        <y>597</y>
                         <z>0</z>
-                        <width>64</width>
+                        <width>200</width>
                         <height>64</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
@@ -102,10 +83,29 @@
                         <effect>(none)</effect>
                     </properties>
                     <world>
-                        <x>733</x>
-                        <y>400</y>
+                        <x>619</x>
+                        <y>687</y>
                         <z>0</z>
-                        <width>64</width>
+                        <width>200</width>
+                        <height>64</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="startbutton">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-frame>0</initial-frame>
+                        <effect>(none)</effect>
+                    </properties>
+                    <world>
+                        <x>617</x>
+                        <y>510</y>
+                        <z>0</z>
+                        <width>200</width>
                         <height>64</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
