@@ -42,8 +42,28 @@
         </event-block>
         <event-block>
             <conditions>
+                <condition id="-6" name="Every X seconds" type="System">
+                    <param id="0" name="Interval (seconds)">3.0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" type="System">
+                    <param id="0" name="Object to create">food</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">random(LayoutWidth)</param>
+                    <param id="3" name="Y">random(LayoutHeight)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
                 <condition id="0" name="On key pressed" type="Keyboard">
                     <param id="0" name="Key">32 (Leer)</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" type="head">
+                    <param id="0" name="Instance variable">player_number</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
                 </condition>
             </conditions>
             <actions>
@@ -52,6 +72,33 @@
                     <param id="1" name="Layer">0</param>
                     <param id="2" name="Image point">3</param>
                 </action>
+                <action id="5" name="Set frame" type="spit">
+                    <param id="0" name="Frame number">head.player_number</param>
+                </action>
+                <action id="2" name="Stop" type="spit" />
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On key pressed" type="Keyboard">
+                    <param id="0" name="Key">16 (Umschalt)</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" type="head">
+                    <param id="0" name="Instance variable">player_number</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" type="head">
+                    <param id="0" name="Object">spit</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">3</param>
+                </action>
+                <action id="5" name="Set frame" type="spit">
+                    <param id="0" name="Frame number">head.player_number</param>
+                </action>
+                <action id="2" name="Stop" type="spit" />
             </actions>
         </event-block>
         <event-group description="" title="Movement">
@@ -425,11 +472,6 @@
                             <param id="0" name="Variable">collisionIID</param>
                             <param id="1" name="Value">segment.IID</param>
                         </action>
-                        <action disabled="1" id="0" name="Spawn another object" type="segment">
-                            <param id="0" name="Object">head</param>
-                            <param id="1" name="Layer">0</param>
-                            <param id="2" name="Image point">3</param>
-                        </action>
                         <action id="-9" name="Set value" type="System">
                             <param id="0" name="Variable">pre1IID</param>
                             <param id="1" name="Value">segment.trailingSegmentIID</param>
@@ -437,8 +479,6 @@
                         <action id="0" name="Set text" type="Text">
                             <param id="0" name="Text">&quot;collIID: &quot; &amp; collisionIID &amp; &quot;, collUID: &quot; &amp; segment.UID</param>
                         </action>
-                        <action id="-9" name="Destroy" type="segment" />
-                        <action id="-9" name="Destroy" type="spit" />
                         <action id="-9" name="Set value" type="System">
                             <param id="0" name="Variable">collidedHeadIID</param>
                             <param id="1" name="Value">segment.headIID</param>
@@ -451,6 +491,8 @@
                             <param id="0" name="Variable">segmentNumberInSnake</param>
                             <param id="1" name="Value">segment.segmentNumberInSnake</param>
                         </action>
+                        <action id="-9" name="Destroy" type="segment" />
+                        <action id="-9" name="Destroy" type="spit" />
                     </actions>
                     <sub-events>
                         <comment>this SHOULD pick all segment again, but it doesnt!?!</comment>
@@ -464,6 +506,7 @@
                             <sub-events>
                                 <variable name="createdHeadUID" type="number">-1</variable>
                                 <variable name="createdHeadIID" type="number">-1</variable>
+                                <comment>if pre1IID is !=-1, this means there is at least one more trailing segment</comment>
                                 <event-block>
                                     <conditions>
                                         <condition id="-14" name="Compare variable" type="System">
@@ -495,10 +538,24 @@
                                                     <param id="2" name="Image point">0</param>
                                                 </action>
                                                 <action id="-9" name="Destroy" type="segment" />
+                                                <action id="-9" name="Set value" type="System">
+                                                    <param id="0" name="Variable">createdHeadIID</param>
+                                                    <param id="1" name="Value">head.IID</param>
+                                                </action>
+                                                <action id="-9" name="Set value" type="System">
+                                                    <param id="0" name="Variable">createdHeadUID</param>
+                                                    <param id="1" name="Value">head.UID</param>
+                                                </action>
+                                                <action id="-10" name="Set value" type="head">
+                                                    <param id="0" name="Instance variable">player_number</param>
+                                                    <param id="1" name="Value">segment.player_number</param>
+                                                </action>
+                                                <action id="2" name="Stop" type="head" />
                                             </actions>
                                         </event-block>
                                     </sub-events>
                                 </event-block>
+                                <comment>if pre2IID is !=-1, this means there are at least two more trailing segment</comment>
                                 <event-block>
                                     <conditions>
                                         <condition id="-14" name="Compare variable" type="System">
@@ -540,6 +597,7 @@
                                         </event-block>
                                     </sub-events>
                                 </event-block>
+                                <comment>set the number of segments of the OLD head to one decreased number; the lastSegmentNumber of the old head must be set to the frontIID</comment>
                                 <event-block>
                                     <conditions>
                                         <condition id="-13" name="Pick nth instance" type="System">
@@ -548,24 +606,17 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="1" name="Append text" type="Text">
-                                            <param id="0" name="Text">&quot;, pre2 uid: &quot; &amp; segment.UID &amp; &quot;, pre2 iid: &quot; &amp; segment.IID</param>
+                                        <action id="-10" name="Set value" type="head">
+                                            <param id="0" name="Instance variable">numberOfSegments</param>
+                                            <param id="1" name="Value">segmentNumberInSnake-1</param>
                                         </action>
-                                        <action id="-10" name="Set value" type="segment">
-                                            <param id="0" name="Instance variable">targetSegmentUID</param>
-                                            <param id="1" name="Value">createdHeadUID</param>
+                                        <action id="-10" name="Set value" type="head">
+                                            <param id="0" name="Instance variable">lastSegmentIID</param>
+                                            <param id="1" name="Value">front1IID</param>
                                         </action>
-                                        <action id="-10" name="Set value" type="segment">
-                                            <param id="0" name="Instance variable">targetSegmentIID</param>
-                                            <param id="1" name="Value">createdHeadIID</param>
-                                        </action>
-                                        <action id="-10" name="Set value" type="segment">
-                                            <param id="0" name="Instance variable">headUID</param>
-                                            <param id="1" name="Value">createdHeadUID</param>
-                                        </action>
-                                        <action id="-10" name="Set value" type="segment">
-                                            <param id="0" name="Instance variable">headIID</param>
-                                            <param id="1" name="Value">createdHeadIID</param>
+                                        <action id="-10" name="Set value" type="head">
+                                            <param id="0" name="Instance variable">lastSegementUID</param>
+                                            <param id="1" name="Value">segment(front1IID).UID</param>
                                         </action>
                                     </actions>
                                 </event-block>

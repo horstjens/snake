@@ -6,13 +6,16 @@
     <saved-with-version>7700</saved-with-version>
     <used-plugins>
         <plugin id="Arr" version="1">Array</plugin>
+        <plugin id="Button" version="1">Button</plugin>
         <plugin id="Keyboard" version="1">Keyboard</plugin>
+        <plugin id="Mouse" version="1">Mouse</plugin>
         <plugin id="Sprite" version="1">Sprite</plugin>
         <plugin id="Text" version="1">Text</plugin>
+        <plugin id="TiledBg" version="1">Tiled Background</plugin>
     </used-plugins>
     <used-behaviors>
-        <behavior id="Bullet" version="1">Bullet</behavior>
         <behavior id="EightDir" version="1">8 Direction</behavior>
+        <behavior id="Bullet" version="1">Bullet</behavior>
         <behavior id="wrap" version="1">Wrap</behavior>
     </used-behaviors>
     <configurations>
@@ -143,13 +146,14 @@
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                         <collision-poly>
-                            <point x="0.5" y="0.3125" />
-                            <point x="0.625" y="0.375" />
+                            <point x="0.34375" y="0.34375" />
+                            <point x="0.5" y="0.375" />
+                            <point x="0.609375" y="0.390625" />
                             <point x="0.9375" y="0.5" />
-                            <point x="0.65625" y="0.65625" />
-                            <point x="0.5" y="0.625" />
-                            <point x="0.34375" y="0.65625" />
-                            <point x="0.125" y="0.5" />
+                            <point x="0.640625" y="0.640625" />
+                            <point x="0.5" y="0.65625" />
+                            <point x="0.28125" y="0.71875" />
+                            <point x="0.09375" y="0.5" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -169,17 +173,29 @@
                 </behavior-type>
             </behaviors>
             <animation-folder expanded="1">
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                         <collision-poly>
-                            <point x="0.015625" y="0.015625" />
-                            <point x="0.5" y="0.109375" />
-                            <point x="0.65625" y="0.34375" />
-                            <point x="0.796875" y="0.5" />
-                            <point x="0.65625" y="0.65625" />
+                            <point x="0.25" y="0.25" />
+                            <point x="0.5" y="0.125" />
+                            <point x="0.8125" y="0.1875" />
+                            <point x="0.875" y="0.5" />
+                            <point x="0.8125" y="0.8125" />
                             <point x="0.5" y="0.875" />
-                            <point x="0.015625" y="0.984375" />
-                            <point x="0.21875" y="0.5" />
+                            <point x="0.1875" y="0.8125" />
+                            <point x="0.125" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.25" y="0.25" />
+                            <point x="0.5" y="0.125" />
+                            <point x="0.8125" y="0.1875" />
+                            <point x="0.875" y="0.5" />
+                            <point x="0.8125" y="0.8125" />
+                            <point x="0.5" y="0.875" />
+                            <point x="0.1875" y="0.8125" />
+                            <point x="0.125" y="0.5" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -188,17 +204,53 @@
         <object-type name="Text">
             <plugin id="Text" />
         </object-type>
+        <object-type name="TiledBackground">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="Startbutton">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="Sprite">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.296875" y="0.296875" />
+                            <point x="0.5" y="0.25" />
+                            <point x="0.703125" y="0.296875" />
+                            <point x="0.78125" y="0.5" />
+                            <point x="0.671875" y="0.671875" />
+                            <point x="0.5" y="0.71875" />
+                            <point x="0.34375" y="0.65625" />
+                            <point x="0.234375" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Mouse">
+            <plugin id="Mouse" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder expanded="1">
         <layout>Layout 1.xml</layout>
+        <layout>startscreen.xml</layout>
+        <layout>creditscreen.xml</layout>
+        <layout>helpscreen.xml</layout>
     </layout-folder>
     <event-folder expanded="1">
         <event-sheet>Event sheet 1.xml</event-sheet>
         <event-sheet>Event sheet 2.xml</event-sheet>
+        <event-sheet>startscreen events.xml</event-sheet>
+        <event-sheet>creditscreen events.xml</event-sheet>
+        <event-sheet>helpscreen events.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" />
+        <global-instance type="Mouse" />
     </global-instances>
     <sounds-folder expanded="1" />
     <music-folder expanded="1" />
