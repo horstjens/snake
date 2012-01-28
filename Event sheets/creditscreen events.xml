@@ -19,5 +19,101 @@
                 </action>
             </actions>
         </event-block>
+        <event-block>
+            <conditions>
+                <condition id="7" name="Cursor is over object" type="Mouse">
+                    <param id="0" name="Object">ChristianText</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set effect" type="ChristianBild">
+                    <param id="0" name="Effect">5</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="7" inverted="1" name="Cursor is over object" type="Mouse">
+                    <param id="0" name="Object">ChristianText</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set effect" type="ChristianBild">
+                    <param id="0" name="Effect">7</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="7" name="Cursor is over object" type="Mouse">
+                    <param id="0" name="Object">BernhardText</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set effect" type="BernhardBild">
+                    <param id="0" name="Effect">5</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="7" inverted="1" name="Cursor is over object" type="Mouse">
+                    <param id="0" name="Object">BernhardText</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set effect" type="BernhardBild">
+                    <param id="0" name="Effect">7</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="7" name="Cursor is over object" type="Mouse">
+                    <param id="0" name="Object">LukasText</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set effect" type="LukasBild">
+                    <param id="0" name="Effect">5</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="7" inverted="1" name="Cursor is over object" type="Mouse">
+                    <param id="0" name="Object">LukasText</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set effect" type="LukasBild">
+                    <param id="0" name="Effect">7</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="7" name="Cursor is over object" type="Mouse">
+                    <param id="0" name="Object">HorstText</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set effect" type="HorstBild">
+                    <param id="0" name="Effect">5</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="7" inverted="1" name="Cursor is over object" type="Mouse">
+                    <param id="0" name="Object">HorstText</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set effect" type="HorstBild">
+                    <param id="0" name="Effect">7</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

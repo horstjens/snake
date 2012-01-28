@@ -90,51 +90,7 @@
             <opacity>1</opacity>
             <force-own-texture>0</force-own-texture>
             <instances>
-                <instance type="Text3">
-                    <properties>
-                        <text>Christian Feldbacher (master coder, designer)</text>
-                        <initial-visibility>Visible</initial-visibility>
-                        <font>Arial,-24,400,0</font>
-                        <color>255,66,0</color>
-                        <horizontal-alignment>Left</horizontal-alignment>
-                        <hotspot>Top-left</hotspot>
-                    </properties>
-                    <world>
-                        <x>182</x>
-                        <y>126</y>
-                        <z>0</z>
-                        <width>501</width>
-                        <height>35</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="Text3">
-                    <properties>
-                        <text>Bernhard Potuzak (visual artist)</text>
-                        <initial-visibility>Visible</initial-visibility>
-                        <font>Arial,-24,400,0</font>
-                        <color>255,66,0</color>
-                        <horizontal-alignment>Left</horizontal-alignment>
-                        <hotspot>Top-left</hotspot>
-                    </properties>
-                    <world>
-                        <x>230</x>
-                        <y>221</y>
-                        <z>0</z>
-                        <width>368</width>
-                        <height>35</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="Text3">
+                <instance type="HorstText">
                     <properties>
                         <text>Horst JENS (2nd coder, designer)</text>
                         <initial-visibility>Visible</initial-visibility>
@@ -145,7 +101,7 @@
                     </properties>
                     <world>
                         <x>230</x>
-                        <y>176</y>
+                        <y>162</y>
                         <z>0</z>
                         <width>397</width>
                         <height>36</height>
@@ -153,28 +109,6 @@
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
                         <angle>-0.000008719</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="Text3">
-                    <properties>
-                        <text>Lukas Hasitschka (sound artist)</text>
-                        <initial-visibility>Visible</initial-visibility>
-                        <font>Arial,-24,400,0</font>
-                        <color>255,66,0</color>
-                        <horizontal-alignment>Left</horizontal-alignment>
-                        <hotspot>Top-left</hotspot>
-                    </properties>
-                    <world>
-                        <x>231</x>
-                        <y>265</y>
-                        <z>0</z>
-                        <width>373</width>
-                        <height>33</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
-                        <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
@@ -192,34 +126,34 @@
             <opacity>1</opacity>
             <force-own-texture>0</force-own-texture>
             <instances>
-                <instance type="spielendprogrammieren">
+                <instance type="HorstLogo">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
                     </properties>
                     <world>
-                        <x>171</x>
-                        <y>359</y>
+                        <x>185</x>
+                        <y>568</y>
                         <z>0</z>
                         <width>100</width>
                         <height>119</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotY>0.50420171</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Sprite">
+                <instance type="LukasLogo">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
                     </properties>
                     <world>
-                        <x>215</x>
-                        <y>576</y>
+                        <x>534</x>
+                        <y>534</y>
                         <z>0</z>
                         <width>355</width>
                         <height>234</height>
@@ -230,18 +164,18 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Text5">
+                <instance type="HorstURL">
                     <properties>
                         <text>spielend-programmieren.at</text>
                         <initial-visibility>Visible</initial-visibility>
                         <font>Arial,-16</font>
-                        <color>255,0,0</color>
+                        <color>0,255,70</color>
                         <horizontal-alignment>Left</horizontal-alignment>
                         <hotspot>Top-left</hotspot>
                     </properties>
                     <world>
-                        <x>21</x>
-                        <y>424</y>
+                        <x>35</x>
+                        <y>633</y>
                         <z>0</z>
                         <width>200</width>
                         <height>30</height>
@@ -252,18 +186,18 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Sprite2">
+                <instance type="BernhardBild">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
                     </properties>
                     <world>
-                        <x>699</x>
-                        <y>480</y>
+                        <x>737.180114746</x>
+                        <y>287.249694824</y>
                         <z>0</z>
-                        <width>196.730056763</width>
-                        <height>351.30368042</height>
+                        <width>116.369750977</width>
+                        <height>207.803131104</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -271,15 +205,15 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Sprite3">
+                <instance type="HorstBild">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
                     </properties>
                     <world>
-                        <x>64</x>
-                        <y>349</y>
+                        <x>78</x>
+                        <y>558</y>
                         <z>0</z>
                         <width>100</width>
                         <height>134</height>
@@ -290,21 +224,109 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Sprite4">
+                <instance type="LukasBild">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
                     </properties>
                     <world>
-                        <x>412</x>
-                        <y>551</y>
+                        <x>732</x>
+                        <y>540</y>
                         <z>0</z>
                         <width>110.970855713</width>
                         <height>157.82522583</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="ChristianBild">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-frame>0</initial-frame>
+                        <effect>(none)</effect>
+                    </properties>
+                    <world>
+                        <x>108</x>
+                        <y>252</y>
+                        <z>0</z>
+                        <width>192.07711792</width>
+                        <height>288.883972168</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="ChristianText">
+                    <properties>
+                        <text>Christian Feldbacher (master coder, designer)</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Arial,-24,400,0</font>
+                        <color>255,128,0</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                        <hotspot>Top-left</hotspot>
+                    </properties>
+                    <instance-variables>
+                        <blink>false</blink>
+                    </instance-variables>
+                    <world>
+                        <x>228</x>
+                        <y>121</y>
+                        <z>0</z>
+                        <width>526</width>
+                        <height>37</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="BernhardText">
+                    <properties>
+                        <text>Bernhard Potuzak (visual artist)</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Arial,-24,400,0</font>
+                        <color>255,255,0</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                        <hotspot>Top-left</hotspot>
+                    </properties>
+                    <world>
+                        <x>231</x>
+                        <y>204</y>
+                        <z>0</z>
+                        <width>423</width>
+                        <height>39</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="LukasText">
+                    <properties>
+                        <text>Lukas Hasitschka (sound artist)</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Arial,-24,400,0</font>
+                        <color>0,255,0</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                        <hotspot>Top-left</hotspot>
+                    </properties>
+                    <world>
+                        <x>230</x>
+                        <y>249</y>
+                        <z>0</z>
+                        <width>396</width>
+                        <height>46</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>

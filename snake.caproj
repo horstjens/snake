@@ -285,7 +285,7 @@
         <object-type name="Text2">
             <plugin id="Text" />
         </object-type>
-        <object-type name="Text3">
+        <object-type name="HorstText">
             <plugin id="Text" />
         </object-type>
         <object-type name="TiledBackground">
@@ -303,11 +303,11 @@
         <object-type name="Text4">
             <plugin id="Text" />
         </object-type>
-        <object-type name="spielendprogrammieren">
+        <object-type name="HorstLogo">
             <plugin id="Sprite" />
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.504202">
                         <collision-poly>
                             <point x="0.5" y="0.0168067" />
                             <point x="0.84" y="0.495798" />
@@ -320,7 +320,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Sprite">
+        <object-type name="LukasLogo">
             <plugin id="Sprite" />
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
@@ -339,10 +339,10 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Text5">
+        <object-type name="HorstURL">
             <plugin id="Text" />
         </object-type>
-        <object-type name="Sprite2">
+        <object-type name="BernhardBild">
             <plugin id="Sprite" />
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
@@ -350,7 +350,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Sprite3">
+        <object-type name="HorstBild">
             <plugin id="Sprite" />
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
@@ -358,13 +358,33 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Sprite4">
+        <object-type name="LukasBild">
             <plugin id="Sprite" />
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
+        </object-type>
+        <object-type name="ChristianBild">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ChristianText">
+            <plugin id="Text" />
+            <instance-variables>
+                <instance-variable name="blink" type="boolean" />
+            </instance-variables>
+        </object-type>
+        <object-type name="BernhardText">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="LukasText">
+            <plugin id="Text" />
         </object-type>
     </object-folder>
     <families />
