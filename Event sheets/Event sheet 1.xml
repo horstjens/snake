@@ -4,6 +4,7 @@
     <name>Event sheet 1</name>
     <events>
         <variable name="dist" type="number">0</variable>
+        <comment>8direction is disabled for testing movement with only 2 buttons</comment>
         <event-block>
             <conditions>
                 <condition id="-2" name="On start of layout" type="System" />
