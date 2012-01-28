@@ -342,42 +342,6 @@
             </conditions>
             <actions />
         </event-block>
-        <event-block>
-            <conditions>
-                <condition id="-1" name="Every tick" type="System" />
-            </conditions>
-            <actions>
-                <action id="-17" name="Move forward" type="head">
-                    <param id="0" name="Distance">3</param>
-                </action>
-            </actions>
-            <sub-events>
-                <event-block>
-                    <conditions>
-                        <condition id="2" name="Key is down" type="Keyboard">
-                            <param id="0" name="Key">65 (A)</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-19" name="Rotate counter-clockwise" type="head">
-                            <param id="0" name="Degrees">3</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block>
-                    <conditions>
-                        <condition id="2" name="Key is down" type="Keyboard">
-                            <param id="0" name="Key">68 (D)</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-18" name="Rotate clockwise" type="head">
-                            <param id="0" name="Degrees">3</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
-        </event-block>
         <event-group description="" title="spitting" />
         <variable name="collisionIID" type="number">-1</variable>
         <variable name="pre1IID" type="number">-1</variable>

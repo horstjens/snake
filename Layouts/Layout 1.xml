@@ -176,7 +176,7 @@
                         <behavior-instance type="Wrap" />
                     </behavior-instances>
                     <world>
-                        <x>236</x>
+                        <x>218</x>
                         <y>371</y>
                         <z>0</z>
                         <width>64</width>
@@ -275,7 +275,7 @@
                         <depth>0</depth>
                         <hotspotX>0.472972959</hotspotX>
                         <hotspotY>0.53125</hotspotY>
-                        <angle>0</angle>
+                        <angle>3.141586065</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
@@ -298,8 +298,8 @@
                         <behavior-instance type="Wrap" />
                     </behavior-instances>
                     <world>
-                        <x>397</x>
-                        <y>465</y>
+                        <x>529</x>
+                        <y>469</y>
                         <z>0</z>
                         <width>64</width>
                         <height>64</height>
