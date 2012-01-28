@@ -234,25 +234,40 @@
                         </action>
                         <action id="-9" name="Set value" type="System">
                             <param id="0" name="Variable">previousLastSegmentUID</param>
-                            <param id="1" name="Value">head.lastSegementUID</param>
+                            <param id="1" name="Value">segment.targetSegmentUID</param>
                         </action>
                     </actions>
                     <sub-events>
+                        <comment>wihtout this pick, only the head would be picked!</comment>
                         <event-block>
                             <conditions>
-                                <condition id="-14" name="Pick by unique ID" type="segment">
-                                    <param id="0" name="Unique ID">previousLastSegmentUID</param>
+                                <condition id="-19" name="Pick all" type="System">
+                                    <param id="0" name="Object">segment</param>
                                 </condition>
                             </conditions>
-                            <actions>
-                                <action id="-10" name="Set value" type="segment">
-                                    <param id="0" name="Instance variable">trailingSegmentIID</param>
-                                    <param id="1" name="Value">createdSegmentIID</param>
-                                </action>
-                                <action id="0" name="Set text" type="Text">
-                                    <param id="0" name="Text">&quot;trailingIID:&quot; &amp; segment.trailingSegmentIID</param>
-                                </action>
-                            </actions>
+                            <actions />
+                            <sub-events>
+                                <event-block>
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" type="segment">
+                                            <param id="0" name="Unique ID">previousLastSegmentUID</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" type="segment">
+                                            <param id="0" name="Instance variable">trailingSegmentIID</param>
+                                            <param id="1" name="Value">createdSegmentIID</param>
+                                        </action>
+                                        <action id="0" name="Set text" type="Text">
+                                            <param id="0" name="Text">&quot;trailingIID:&quot; &amp; segment.trailingSegmentIID</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block>
+                                    <conditions />
+                                    <actions />
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -363,53 +378,164 @@
             </sub-events>
         </event-block>
         <event-group description="" title="spitting" />
-        <variable name="pre1IID" type="number">0</variable>
-        <event-block disabled="1">
+        <variable name="collisionIID" type="number">-1</variable>
+        <variable name="pre1IID" type="number">-1</variable>
+        <variable name="pre2IID" type="number">-1</variable>
+        <event-block>
             <conditions>
-                <condition disabled="1" id="0" name="On collision with another object" type="spit">
+                <condition id="0" name="On collision with another object" type="spit">
                     <param id="0" name="Object">segment</param>
                 </condition>
             </conditions>
             <actions>
+                <action id="-9" name="Set value" type="System">
+                    <param id="0" name="Variable">collisionIID</param>
+                    <param id="1" name="Value">segment.IID</param>
+                </action>
                 <action disabled="1" id="0" name="Spawn another object" type="segment">
                     <param id="0" name="Object">head</param>
                     <param id="1" name="Layer">0</param>
                     <param id="2" name="Image point">3</param>
                 </action>
                 <action disabled="1" id="-9" name="Destroy" type="segment" />
+                <action id="-9" name="Set value" type="System">
+                    <param id="0" name="Variable">pre1IID</param>
+                    <param id="1" name="Value">segment.trailingSegmentIID</param>
+                </action>
+                <action id="0" name="Set text" type="Text">
+                    <param id="0" name="Text">&quot;collIID: &quot; &amp; collisionIID &amp; &quot;, collUID: &quot; &amp; segment.UID</param>
+                </action>
             </actions>
             <sub-events>
-                <event-block disabled="1">
+                <comment>this SHOULD pick all segment again, but it doesnt!?!</comment>
+                <event-block>
                     <conditions>
-                        <condition disabled="1" id="-7" name="Compare instance variable" type="segment">
-                            <param id="0" name="Instance variable">trailingSegmentIID</param>
-                            <param id="1" name="Comparison">1</param>
-                            <param id="2" name="Value">-1</param>
+                        <condition id="-19" name="Pick all" type="System">
+                            <param id="0" name="Object">segment</param>
                         </condition>
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-block disabled="1">
+                        <event-block>
                             <conditions>
-                                <condition disabled="1" id="-19" name="Pick all" type="System">
-                                    <param id="0" name="Object">segment</param>
+                                <condition id="-14" name="Compare variable" type="System">
+                                    <param id="0" name="Variable">pre1IID</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">-1</param>
                                 </condition>
                             </conditions>
                             <actions />
                             <sub-events>
-                                <event-block disabled="1">
+                                <event-block>
                                     <conditions>
-                                        <condition disabled="1" id="-7" name="Compare instance variable" type="segment">
-                                            <param id="0" name="Instance variable">targetSegmentUID</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">segment.UID</param>
+                                        <condition id="-13" name="Pick nth instance" type="System">
+                                            <param id="0" name="Object">segment</param>
+                                            <param id="1" name="Instance">pre1IID</param>
                                         </condition>
                                     </conditions>
-                                    <actions />
+                                    <actions>
+                                        <action id="-9" name="Set value" type="System">
+                                            <param id="0" name="Variable">pre2IID</param>
+                                            <param id="1" name="Value">segment.trailingSegmentIID</param>
+                                        </action>
+                                        <action id="1" name="Append text" type="Text">
+                                            <param id="0" name="Text">&quot;, pre1 uid: &quot; &amp; segment.UID &amp; &quot;, pre1 iid: &quot; &amp; segment.IID</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" type="segment">
+                                            <param id="0" name="Object">head</param>
+                                            <param id="1" name="Layer">0</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                    </actions>
                                 </event-block>
                             </sub-events>
                         </event-block>
+                        <event-block>
+                            <conditions>
+                                <condition id="-14" name="Compare variable" type="System">
+                                    <param id="0" name="Variable">pre2IID</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">-1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block>
+                                    <conditions>
+                                        <condition id="-13" name="Pick nth instance" type="System">
+                                            <param id="0" name="Object">segment</param>
+                                            <param id="1" name="Instance">pre2IID</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Append text" type="Text">
+                                            <param id="0" name="Text">&quot;, pre2 uid: &quot; &amp; segment.UID &amp; &quot;, pre2 iid: &quot; &amp; segment.IID</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block>
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Destroy" type="segment" />
+                            </actions>
+                        </event-block>
                     </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block disabled="1">
+            <conditions>
+                <condition disabled="1" id="-14" name="Compare variable" type="System">
+                    <param id="0" name="Variable">pre1IID</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">-1</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block disabled="1">
+                    <conditions>
+                        <condition disabled="1" id="-13" name="Pick nth instance" type="System">
+                            <param id="0" name="Object">segment</param>
+                            <param id="1" name="Instance">pre1IID</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="1" name="Append text" type="Text">
+                            <param id="0" name="Text">&quot;pre1 uid: &quot; &amp; segment.UID &amp; &quot;pre1 iid: &quot; &amp; segment.IID</param>
+                        </action>
+                        <action disabled="1" id="-9" name="Set value" type="System">
+                            <param id="0" name="Variable">pre2IID</param>
+                            <param id="1" name="Value">segment.trailingSegmentIID</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block disabled="1">
+            <conditions>
+                <condition disabled="1" id="-14" name="Compare variable" type="System">
+                    <param id="0" name="Variable">pre2IID</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">-1</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block disabled="1">
+                    <conditions>
+                        <condition disabled="1" id="-13" name="Pick nth instance" type="System">
+                            <param id="0" name="Object">segment</param>
+                            <param id="1" name="Instance">pre2IID</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="1" name="Append text" type="Text">
+                            <param id="0" name="Text">&quot;pre2 uid: &quot; &amp; segment.UID &amp; &quot;pre2 iid: &quot; &amp; segment.IID</param>
+                        </action>
+                    </actions>
                 </event-block>
             </sub-events>
         </event-block>

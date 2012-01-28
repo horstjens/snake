@@ -227,10 +227,10 @@
                         <hotspot>Top-left</hotspot>
                     </properties>
                     <world>
-                        <x>574</x>
+                        <x>49</x>
                         <y>33</y>
                         <z>0</z>
-                        <width>200</width>
+                        <width>725</width>
                         <height>30</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
