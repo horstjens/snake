@@ -387,7 +387,7 @@
         <object-type name="LukasText">
             <plugin id="Text" />
         </object-type>
-        <object-type name="Sprite">
+        <object-type name="BernhardLogo">
             <plugin id="Sprite" />
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">

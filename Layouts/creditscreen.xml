@@ -43,7 +43,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Sprite">
+                <instance type="BernhardLogo">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
