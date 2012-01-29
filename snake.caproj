@@ -7,6 +7,7 @@
     <used-plugins>
         <plugin id="Arr" version="1">Array</plugin>
         <plugin id="Audio" version="1">Audio</plugin>
+        <plugin id="Browser" version="1">Browser</plugin>
         <plugin id="Keyboard" version="1">Keyboard</plugin>
         <plugin id="Mouse" version="1">Mouse</plugin>
         <plugin id="Sprite" version="1">Sprite</plugin>
@@ -17,6 +18,7 @@
     </used-plugins>
     <used-behaviors>
         <behavior id="Bullet" version="1">Bullet</behavior>
+        <behavior id="destroy" version="1">Destroy outside layout</behavior>
         <behavior id="wrap" version="1">Wrap</behavior>
     </used-behaviors>
     <configurations>
@@ -43,7 +45,12 @@
                 <instance-variable name="lastSegementUID" type="number" />
                 <instance-variable name="lastSegmentIID" type="number" />
                 <instance-variable name="player_number" type="number" />
-                <instance-variable name="hitpoints" type="number" />
+                <instance-variable comment="start with initialHealth; this gets modified at runtime and determines the scale" name="health" type="number" />
+                <instance-variable comment="use this for scaling the objects at runtime at a collision with a spit (become smaller) or when eating food" name="initialHealth" type="number" />
+                <instance-variable comment="a sum of all health points of all segments + the head, needed for spitting and to determine the speed of the spits" name="totalStrength" type="number" />
+                <instance-variable name="initialWidth" type="number" />
+                <instance-variable name="initialHeight" type="number" />
+                <instance-variable name="scaleFactor" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Wrap">
@@ -99,8 +106,11 @@
                 <instance-variable comment="needed when colliding with a spit, because then the segment should be destroyed and the following segment replaced with a head" name="trailingSegmentIID" type="number" />
                 <instance-variable name="player_number" type="number" />
                 <instance-variable comment="starts with 1 (it gets set to numOfSegments at segment creation); is needed to be able to set the numOfSegments to the head" name="segmentNumberInSnake" type="number" />
-                <instance-variable name="hitpoints" type="number" />
                 <instance-variable comment="this is a workaround because IIDs are not constant when objects get removed, so they just get disabled instead of destroyed" name="enabled" type="boolean" />
+                <instance-variable comment="this gets increased at runtime by eating food or collison with spits" name="health" type="number" />
+                <instance-variable comment="this is needed for scaling the sprite" name="initialHealth" type="number" />
+                <instance-variable comment="this must be set to the same value as size and is used for calcuating the scale factor and is needed because the width changes dynamically at runtime and cant be used for calculating the new scale" name="initialSize" type="number" />
+                <instance-variable comment="this can be used to adjust the scaling; it does NOT get modified at runtime, so is a constant only with visual effect!" name="scaleFactor" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Wrap">
@@ -142,6 +152,9 @@
         </object-type>
         <object-type name="food">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="this value gets added to all segments of the snake eating the food and to the head" name="health" type="number" />
+            </instance-variables>
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5">
@@ -164,9 +177,20 @@
         </object-type>
         <object-type name="spit">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="the base is the initial strengt for a head, this results in a size of 16" name="initialStrength" type="number" />
+                <instance-variable comment="gets set to the totalStrength of the head that created it" name="strength" type="number" />
+                <instance-variable comment="used for scaling" name="initialSize" type="number" />
+                <instance-variable name="scaleFactor" type="number" />
+                <instance-variable comment="this is needed, because the strength value contains the totalStrength of the snake which would be too much damage; so the totalStrength is multiplied by this value at a collision with a head or segment" name="damageMultiplier" type="number" />
+                <instance-variable comment="holds the number which player created the spit. this is important at collision detection, because the own spit shall only hit the enemy player" name="playerOriginNumber" type="number" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Bullet">
                     <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout">
+                    <behavior id="destroy" />
                 </behavior-type>
                 <behavior-type name="Wrap">
                     <behavior id="wrap" />
@@ -406,7 +430,7 @@
         <object-type name="TextBox">
             <plugin id="TextBox" />
         </object-type>
-        <object-type name="Text3">
+        <object-type name="bernhardURL">
             <plugin id="Text" />
         </object-type>
         <object-type name="Audio">
@@ -414,6 +438,9 @@
         </object-type>
         <object-type name="debugtexthorst">
             <plugin id="Text" />
+        </object-type>
+        <object-type name="Browser">
+            <plugin id="Browser" />
         </object-type>
     </object-folder>
     <families />
@@ -439,6 +466,7 @@
                 <timescale-audio>Off</timescale-audio>
             </properties>
         </global-instance>
+        <global-instance type="Browser" />
     </global-instances>
     <sounds-folder expanded="1">
         <file name="pflopp1.ogg" />

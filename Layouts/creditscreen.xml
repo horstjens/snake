@@ -62,7 +62,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Text3">
+                <instance type="bernhardURL">
                     <properties>
                         <text>www.maxx-studios.tumblr.com</text>
                         <initial-visibility>Visible</initial-visibility>
