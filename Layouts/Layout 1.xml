@@ -216,6 +216,8 @@
                         <strength>0</strength>
                         <initialSize>16</initialSize>
                         <scaleFactor>0.3</scaleFactor>
+                        <damageMultiplier>0.3</damageMultiplier>
+                        <playerOriginNumber>0</playerOriginNumber>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Bullet">

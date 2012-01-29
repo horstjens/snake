@@ -180,6 +180,8 @@
                 <instance-variable comment="gets set to the totalStrength of the head that created it" name="strength" type="number" />
                 <instance-variable comment="used for scaling" name="initialSize" type="number" />
                 <instance-variable name="scaleFactor" type="number" />
+                <instance-variable comment="this is needed, because the strength value contains the totalStrength of the snake which would be too much damage; so the totalStrength is multiplied by this value at a collision with a head or segment" name="damageMultiplier" type="number" />
+                <instance-variable comment="holds the number which player created the spit. this is important at collision detection, because the own spit shall only hit the enemy player" name="playerOriginNumber" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Bullet">

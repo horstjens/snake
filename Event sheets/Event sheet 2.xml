@@ -119,59 +119,83 @@
                 </action>
             </actions>
         </event-block>
-        <event-block>
-            <conditions>
-                <condition id="0" name="On collision with another object" type="spit">
-                    <param id="0" name="Object">head</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-12" name="Subtract from" type="head">
-                    <param id="0" name="Instance variable">health</param>
-                    <param id="1" name="Value">1</param>
-                </action>
-            </actions>
+        <event-group description="" title="Firing">
             <sub-events>
                 <event-block>
                     <conditions>
+                        <condition id="0" name="On key pressed" type="Keyboard">
+                            <param id="0" name="Key">32 (Leer)</param>
+                        </condition>
                         <condition id="-7" name="Compare instance variable" type="head">
-                            <param id="0" name="Instance variable">health</param>
-                            <param id="1" name="Comparison">3</param>
+                            <param id="0" name="Instance variable">player_number</param>
+                            <param id="1" name="Comparison">0</param>
                             <param id="2" name="Value">0</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-9" name="Destroy" type="head" />
+                        <action id="0" name="Spawn another object" type="head">
+                            <param id="0" name="Object">spit</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">3</param>
+                        </action>
+                        <action id="5" name="Set frame" type="spit">
+                            <param id="0" name="Frame number">head.player_number</param>
+                        </action>
+                        <action id="2" name="Stop" type="spit" />
+                        <action id="-10" name="Set value" type="spit">
+                            <param id="0" name="Instance variable">strength</param>
+                            <param id="1" name="Value">head.totalStrength</param>
+                        </action>
+                        <action id="-5" name="Set width" type="spit">
+                            <param id="0" name="Width">self.initialSize*(1+ ((self.strength/self.initialStrength-1)*self.scaleFactor))</param>
+                        </action>
+                        <action id="-6" name="Set height" type="spit">
+                            <param id="0" name="Height">self.initialSize*(1+ ((self.strength/self.initialStrength-1)*self.scaleFactor))</param>
+                        </action>
+                        <action id="-10" name="Set value" type="spit">
+                            <param id="0" name="Instance variable">playerOriginNumber</param>
+                            <param id="1" name="Value">head.player_number</param>
+                        </action>
                     </actions>
                 </event-block>
-            </sub-events>
-        </event-block>
-        <event-block>
-            <conditions>
-                <condition id="0" name="On collision with another object" type="spit">
-                    <param id="0" name="Object">segment</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-12" name="Subtract from" type="segment">
-                    <param id="0" name="Instance variable">health</param>
-                    <param id="1" name="Value">1</param>
-                </action>
-            </actions>
-            <sub-events>
                 <event-block>
                     <conditions>
-                        <condition id="-7" name="Compare instance variable" type="segment">
-                            <param id="0" name="Instance variable">health</param>
-                            <param id="1" name="Comparison">3</param>
-                            <param id="2" name="Value">0</param>
+                        <condition id="0" name="On key pressed" type="Keyboard">
+                            <param id="0" name="Key">45 (Insert)</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" type="head">
+                            <param id="0" name="Instance variable">player_number</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-9" name="Destroy" type="segment" />
+                        <action id="0" name="Spawn another object" type="head">
+                            <param id="0" name="Object">spit</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">3</param>
+                        </action>
+                        <action id="5" name="Set frame" type="spit">
+                            <param id="0" name="Frame number">head.player_number</param>
+                        </action>
+                        <action id="2" name="Stop" type="spit" />
+                        <action id="-10" name="Set value" type="spit">
+                            <param id="0" name="Instance variable">strength</param>
+                            <param id="1" name="Value">head.totalStrength</param>
+                        </action>
+                        <action id="-5" name="Set width" type="spit">
+                            <param id="0" name="Width">self.initialSize*(1+ ((self.strength/self.initialStrength-1)*self.scaleFactor))</param>
+                        </action>
+                        <action id="-6" name="Set height" type="spit">
+                            <param id="0" name="Height">self.initialSize*(1+ ((self.strength/self.initialStrength-1)*self.scaleFactor))</param>
+                        </action>
+                        <action id="-10" name="Set value" type="spit">
+                            <param id="0" name="Instance variable">playerOriginNumber</param>
+                            <param id="1" name="Value">head.player_number</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
-        </event-block>
+        </event-group>
     </events>
 </c2eventsheet>
