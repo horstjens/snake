@@ -7,7 +7,14 @@
             <conditions>
                 <condition id="-2" name="On start of layout" type="System" />
             </conditions>
-            <actions />
+            <actions>
+                <action id="0" name="Log Text" type="ChromeConsole">
+                    <param id="0" name="Data">&quot;player0HeadCount&quot; &amp; player0HeadCount</param>
+                </action>
+                <action id="0" name="Log Text" type="ChromeConsole">
+                    <param id="0" name="Data">&quot;player1HeadCount&quot; &amp; player1HeadCount</param>
+                </action>
+            </actions>
             <sub-events>
                 <event-block>
                     <conditions>
@@ -19,7 +26,7 @@
                     </conditions>
                     <actions>
                         <action id="5" name="Set frame" type="winLooseSprite">
-                            <param id="0" name="Frame number">0</param>
+                            <param id="0" name="Frame number">1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -33,7 +40,7 @@
                     </conditions>
                     <actions>
                         <action id="5" name="Set frame" type="winLooseSprite">
-                            <param id="0" name="Frame number">1</param>
+                            <param id="0" name="Frame number">0</param>
                         </action>
                     </actions>
                 </event-block>
