@@ -213,7 +213,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Text">
+                <instance type="DebugText1">
                     <properties>
                         <text>Text</text>
                         <initial-visibility>Visible</initial-visibility>
@@ -264,7 +264,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Text2">
+                <instance type="DebugText2">
                     <properties>
                         <text>Text</text>
                         <initial-visibility>Visible</initial-visibility>
@@ -354,7 +354,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Text3">
+                <instance type="DebugText3">
                     <properties>
                         <text>Text</text>
                         <initial-visibility>Visible</initial-visibility>

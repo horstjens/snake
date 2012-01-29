@@ -356,7 +356,7 @@
                                             <param id="0" name="Instance variable">trailingSegmentIID</param>
                                             <param id="1" name="Value">createdSegmentIID</param>
                                         </action>
-                                        <action id="0" name="Set text" type="Text">
+                                        <action id="0" name="Set text" type="DebugText1">
                                             <param id="0" name="Text">&quot;trailingIID:&quot; &amp; segment.trailingSegmentIID</param>
                                         </action>
                                     </actions>
@@ -488,7 +488,7 @@
                             <param id="0" name="Variable">pre1IID</param>
                             <param id="1" name="Value">segment.trailingSegmentIID</param>
                         </action>
-                        <action id="0" name="Set text" type="Text">
+                        <action id="0" name="Set text" type="DebugText1">
                             <param id="0" name="Text">&quot;collIID: &quot; &amp; collisionIID &amp; &quot;, collUID: &quot; &amp; segment.UID</param>
                         </action>
                         <action id="-9" name="Set value" type="System">
@@ -557,7 +557,7 @@
                                                     <param id="0" name="Variable">pre2IID</param>
                                                     <param id="1" name="Value">segment.trailingSegmentIID</param>
                                                 </action>
-                                                <action id="1" name="Append text" type="Text">
+                                                <action id="1" name="Append text" type="DebugText1">
                                                     <param id="0" name="Text">&quot;, pre1 uid: &quot; &amp; segment.UID &amp; &quot;, pre1 iid: &quot; &amp; segment.IID</param>
                                                 </action>
                                                 <action id="0" name="Spawn another object" type="segment">
@@ -617,7 +617,7 @@
                                                 </condition>
                                             </conditions>
                                             <actions>
-                                                <action id="1" name="Append text" type="Text">
+                                                <action id="1" name="Append text" type="DebugText1">
                                                     <param id="0" name="Text">&quot;, pre2 uid: &quot; &amp; segment.UID &amp; &quot;, pre2 iid: &quot; &amp; segment.IID</param>
                                                 </action>
                                                 <action id="-10" name="Set value" type="segment">
@@ -826,7 +826,7 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" type="Text2">
+                        <action id="0" name="Set text" type="DebugText2">
                             <param id="0" name="Text">&quot;numSegments: &quot; &amp; head.numberOfSegments &amp; &quot;, lastSegIID: &quot; &amp; head.lastSegmentIID &amp; &quot;lastSegUID: &quot; &amp;head.lastSegementUID</param>
                         </action>
                     </actions>
@@ -840,7 +840,7 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" type="Text3">
+                        <action id="0" name="Set text" type="DebugText3">
                             <param id="0" name="Text">&quot;head IID&quot; &amp; head.IID &amp; &quot;, UID&quot; &amp; head.UID &amp; &quot;, numSegments: &quot; &amp; head.numberOfSegments &amp; &quot;, lastSegIID: &quot; &amp; head.lastSegmentIID &amp; &quot;lastSegUID: &quot; &amp;head.lastSegementUID</param>
                         </action>
                     </actions>

@@ -10,9 +10,15 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML 5" />
     </configurations>
     <open-tabs>
-        <layout active="1">Layout 1</layout>
+        <layout>Layout 1</layout>
+        <layout>startscreen</layout>
+        <layout active="1">creditscreen</layout>
+        <layout>helpscreen</layout>
         <event-sheet>Event sheet 1</event-sheet>
         <event-sheet>Event sheet 2</event-sheet>
+        <event-sheet>startscreen events</event-sheet>
+        <event-sheet>creditscreen events</event-sheet>
+        <event-sheet>helpscreen events</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="Project settings" />

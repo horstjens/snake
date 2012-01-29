@@ -11,9 +11,10 @@
         <plugin id="Sprite" version="1">Sprite</plugin>
         <plugin id="Text" version="1">Text</plugin>
         <plugin id="chromeconsole" version="0.100000001">Chrome Console</plugin>
+        <plugin id="TextBox" version="1">Text box</plugin>
+        <plugin id="TiledBg" version="1">Tiled Background</plugin>
     </used-plugins>
     <used-behaviors>
-        <behavior id="Bullet" version="1">Bullet</behavior>
         <behavior id="wrap" version="1">Wrap</behavior>
     </used-behaviors>
     <configurations>
@@ -24,6 +25,7 @@
         <height>800</height>
     </window-size>
     <pixel-rounding>0</pixel-rounding>
+    <first-layout>startscreen</first-layout>
     <configuration-settings>
         <prop name="Enable WebGL">On</prop>
         <prop name="Fullscreen in browser">Off</prop>
@@ -197,29 +199,228 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Text">
+        <object-type name="DebugText1">
             <plugin id="Text" />
         </object-type>
         <object-type name="ChromeConsole">
             <plugin id="chromeconsole" />
         </object-type>
-        <object-type name="Text2">
+        <object-type name="DebugText2">
             <plugin id="Text" />
         </object-type>
-        <object-type name="Text3">
+        <object-type name="DebugText3">
             <plugin id="Text" />
         </object-type>
         <object-type name="Mouse">
             <plugin id="Mouse" />
         </object-type>
+        <object-type name="creditbutton">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                            <point x="0.995" y="0.984375" />
+                            <point x="0.005" y="0.984375" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="helpbutton">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                            <point x="0.995" y="0.984375" />
+                            <point x="0.005" y="0.984375" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="menubutton">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                            <point x="0.995" y="0.984375" />
+                            <point x="0.005" y="0.984375" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="menubuttonH">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                            <point x="0.995" y="0.984375" />
+                            <point x="0.005" y="0.984375" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="startbutton">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                            <point x="0.995" y="0.984375" />
+                            <point x="0.005" y="0.984375" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Text2">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="HorstText">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="TiledBackground">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="TiledBackground2">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="TiledBackground3">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="Text4">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="HorstLogo">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.504202">
+                        <collision-poly>
+                            <point x="0.5" y="0.0168067" />
+                            <point x="0.84" y="0.495798" />
+                            <point x="0.88" y="0.89916" />
+                            <point x="0.5" y="0.932773" />
+                            <point x="0.09" y="0.92437" />
+                            <point x="0.22" y="0.495798" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="LukasLogo">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.501408" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.230986" y="0.350427" />
+                            <point x="0.498592" y="0.294872" />
+                            <point x="0.676056" y="0.491453" />
+                            <point x="0.670423" y="0.5" />
+                            <point x="0.853521" y="0.777778" />
+                            <point x="0.498592" y="0.773504" />
+                            <point x="0.205634" y="0.688034" />
+                            <point x="0.253521" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="HorstURL">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="BernhardBild">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="HorstBild">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="LukasBild">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ChristianBild">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ChristianText">
+            <plugin id="Text" />
+            <instance-variables>
+                <instance-variable name="blink" type="boolean" />
+            </instance-variables>
+        </object-type>
+        <object-type name="BernhardText">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="LukasText">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="BernhardLogo">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="TextBox">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="Text3">
+            <plugin id="Text" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder expanded="1">
         <layout>Layout 1.xml</layout>
+        <layout>startscreen.xml</layout>
+        <layout>creditscreen.xml</layout>
+        <layout>helpscreen.xml</layout>
     </layout-folder>
     <event-folder expanded="1">
         <event-sheet>Event sheet 1.xml</event-sheet>
         <event-sheet>Event sheet 2.xml</event-sheet>
+        <event-sheet>startscreen events.xml</event-sheet>
+        <event-sheet>creditscreen events.xml</event-sheet>
+        <event-sheet>helpscreen events.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" />
