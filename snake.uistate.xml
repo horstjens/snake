@@ -11,7 +11,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </configurations>
     <open-tabs>
         <layout>Layout 1</layout>
-        <layout>startscreen</layout>
+        <layout active="1">startscreen</layout>
         <layout>creditscreen</layout>
         <layout>helpscreen</layout>
         <layout>result</layout>

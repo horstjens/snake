@@ -12,8 +12,8 @@
         <plugin id="Mouse" version="1">Mouse</plugin>
         <plugin id="Sprite" version="1">Sprite</plugin>
         <plugin id="TiledBg" version="1">Tiled Background</plugin>
-        <plugin id="Text" version="1">Text</plugin>
         <plugin id="TextBox" version="1">Text box</plugin>
+        <plugin id="Text" version="1">Text</plugin>
         <plugin id="chromeconsole" version="0.100000001">Chrome Console</plugin>
     </used-plugins>
     <used-behaviors>
@@ -492,6 +492,14 @@
         <file name="rattlesnake.wav" />
         <file name="wind.ogg" />
         <file name="wind.wav" />
+        <file name="eat1.m4a" />
+        <file name="eat2.m4a" />
+        <file name="eat3.m4a" />
+        <file name="eat4.m4a" />
+        <file name="eat5.ogg" />
+        <file name="eat5.wav" />
+        <file name="eat6.ogg" />
+        <file name="eat6.wav" />
     </sounds-folder>
     <music-folder expanded="1" />
 </c2project>
