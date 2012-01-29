@@ -62,6 +62,9 @@
                     <param id="1" name="Comparison">0</param>
                     <param id="2" name="Value">0</param>
                 </condition>
+                <condition id="-8" name="Is boolean instance variable set" type="head">
+                    <param id="0" name="Instance variable">enabled</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="-19" name="Rotate counter-clockwise" type="head">
@@ -78,6 +81,9 @@
                     <param id="0" name="Instance variable">player_number</param>
                     <param id="1" name="Comparison">0</param>
                     <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-8" name="Is boolean instance variable set" type="head">
+                    <param id="0" name="Instance variable">enabled</param>
                 </condition>
             </conditions>
             <actions>
@@ -96,6 +102,9 @@
                     <param id="1" name="Comparison">0</param>
                     <param id="2" name="Value">1</param>
                 </condition>
+                <condition id="-8" name="Is boolean instance variable set" type="head">
+                    <param id="0" name="Instance variable">enabled</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="-18" name="Rotate clockwise" type="head">
@@ -112,6 +121,9 @@
                     <param id="0" name="Instance variable">player_number</param>
                     <param id="1" name="Comparison">0</param>
                     <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-8" name="Is boolean instance variable set" type="head">
+                    <param id="0" name="Instance variable">enabled</param>
                 </condition>
             </conditions>
             <actions>
@@ -131,6 +143,9 @@
                             <param id="0" name="Instance variable">player_number</param>
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" type="head">
+                            <param id="0" name="Instance variable">enabled</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -168,6 +183,9 @@
                             <param id="0" name="Instance variable">player_number</param>
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" type="head">
+                            <param id="0" name="Instance variable">enabled</param>
                         </condition>
                     </conditions>
                     <actions>

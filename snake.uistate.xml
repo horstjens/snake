@@ -15,9 +15,9 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <layout>creditscreen</layout>
         <layout>helpscreen</layout>
         <event-sheet>Event sheet 1</event-sheet>
-        <event-sheet>Event sheet 2</event-sheet>
+        <event-sheet active="1">Event sheet 2</event-sheet>
         <event-sheet>startscreen events</event-sheet>
-        <event-sheet active="1">creditscreen events</event-sheet>
+        <event-sheet>creditscreen events</event-sheet>
         <event-sheet>helpscreen events</event-sheet>
         <event-sheet>Event sheet 3</event-sheet>
     </open-tabs>
