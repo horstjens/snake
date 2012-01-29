@@ -1028,39 +1028,6 @@
                 </event-group>
             </sub-events>
         </event-group>
-        <event-group description="" title="Debugging">
-            <sub-events>
-                <event-block>
-                    <conditions>
-                        <condition id="-1" name="Every tick" type="System" />
-                        <condition id="-7" name="Compare instance variable" type="head">
-                            <param id="0" name="Instance variable">player_number</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">0</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Set text" type="DebugText2">
-                            <param id="0" name="Text">&quot;numSegments: &quot; &amp; head.numberOfSegments &amp; &quot;, lastSegIID: &quot; &amp; head.lastSegmentIID &amp; &quot;lastSegUID: &quot; &amp;head.lastSegementUID</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block>
-                    <conditions>
-                        <condition id="6" name="On object clicked" type="Mouse">
-                            <param id="0" name="Mouse button">0</param>
-                            <param id="1" name="Click type">0</param>
-                            <param id="2" name="Object clicked">head</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Set text" type="DebugText3">
-                            <param id="0" name="Text">&quot;head IID&quot; &amp; head.IID &amp; &quot;, UID&quot; &amp; head.UID &amp; &quot;, numSegments: &quot; &amp; head.numberOfSegments &amp; &quot;, lastSegIID: &quot; &amp; head.lastSegmentIID &amp; &quot;lastSegUID: &quot; &amp;head.lastSegementUID</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
-        </event-group>
         <event-block>
             <conditions>
                 <condition id="-1" name="Every tick" type="System" />

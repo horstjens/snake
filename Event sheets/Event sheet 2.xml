@@ -151,7 +151,7 @@
                 <event-block>
                     <conditions>
                         <condition id="0" name="On key pressed" type="Keyboard">
-                            <param id="0" name="Key">32 (Leer)</param>
+                            <param id="0" name="Key">16 (Umschalt)</param>
                         </condition>
                         <condition id="-7" name="Compare instance variable" type="head">
                             <param id="0" name="Instance variable">player_number</param>
@@ -203,7 +203,7 @@
                 <event-block>
                     <conditions>
                         <condition id="0" name="On key pressed" type="Keyboard">
-                            <param id="0" name="Key">45 (Insert)</param>
+                            <param id="0" name="Key">32 (Leer)</param>
                         </condition>
                         <condition id="-7" name="Compare instance variable" type="head">
                             <param id="0" name="Instance variable">player_number</param>
