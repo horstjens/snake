@@ -174,6 +174,7 @@
                         <player_number>0</player_number>
                         <segmentNumberInSnake>1</segmentNumberInSnake>
                         <hitpoints>5</hitpoints>
+                        <enabled>true</enabled>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Wrap" />
@@ -305,45 +306,6 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="head">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
-                    </properties>
-                    <instance-variables>
-                        <numberOfSegments>0</numberOfSegments>
-                        <lastSegementUID>-1</lastSegementUID>
-                        <lastSegmentIID>-1</lastSegmentIID>
-                        <player_number>0</player_number>
-                        <hitpoints>3</hitpoints>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="Wrap" />
-                        <behavior-instance type="8Direction">
-                            <properties>
-                                <max-speed>200</max-speed>
-                                <acceleration>600</acceleration>
-                                <deceleration>0</deceleration>
-                                <directions>4 directions</directions>
-                                <set-angle>360 degree (smooth)</set-angle>
-                                <default-controls>Yes</default-controls>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
-                    <world>
-                        <x>287</x>
-                        <y>471</y>
-                        <z>0</z>
-                        <width>74</width>
-                        <height>64</height>
-                        <depth>0</depth>
-                        <hotspotX>0.472972959</hotspotX>
-                        <hotspotY>0.53125</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
                 <instance type="segment">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
@@ -360,6 +322,7 @@
                         <player_number>0</player_number>
                         <segmentNumberInSnake>1</segmentNumberInSnake>
                         <hitpoints>5</hitpoints>
+                        <enabled>true</enabled>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Wrap" />
@@ -393,6 +356,7 @@
                         <player_number>0</player_number>
                         <segmentNumberInSnake>1</segmentNumberInSnake>
                         <hitpoints>5</hitpoints>
+                        <enabled>true</enabled>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Wrap" />
@@ -477,8 +441,8 @@
                         <effect>(none)</effect>
                     </properties>
                     <world>
-                        <x>64</x>
-                        <y>455</y>
+                        <x>99</x>
+                        <y>364</y>
                         <z>0</z>
                         <width>64</width>
                         <height>64</height>
@@ -555,6 +519,44 @@
                     <world>
                         <x>153</x>
                         <y>376</y>
+                        <z>0</z>
+                        <width>64</width>
+                        <height>64</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="food">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-frame>0</initial-frame>
+                        <effect>(none)</effect>
+                    </properties>
+                    <world>
+                        <x>171</x>
+                        <y>478</y>
+                        <z>0</z>
+                        <width>64</width>
+                        <height>64</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="food">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-frame>0</initial-frame>
+                        <effect>(none)</effect>
+                    </properties>
+                    <world>
+                        <x>36</x>
+                        <y>363</y>
                         <z>0</z>
                         <width>64</width>
                         <height>64</height>
