@@ -32,14 +32,6 @@
                 <event-block>
                     <conditions>
                         <condition id="-19" name="Pick all" type="System">
-                            <param id="0" name="Object">head</param>
-                        </condition>
-                    </conditions>
-                    <actions />
-                </event-block>
-                <event-block>
-                    <conditions>
-                        <condition id="-19" name="Pick all" type="System">
                             <param id="0" name="Object">segment</param>
                         </condition>
                     </conditions>
@@ -67,7 +59,7 @@
                 </action>
             </actions>
         </event-block>
-        <event-group description="" title="Movement">
+        <event-group collapsed="1" description="" title="Movement">
             <sub-events>
                 <event-block>
                     <conditions>
@@ -505,7 +497,7 @@
             <sub-events>
                 <comment>mention that it is NOT safe to destroy objects, as the IIDs change then!!!</comment>
                 <comment>only collide if the spit is different than the segment&apos;s player_number, so firing to the own snakes is not possible</comment>
-                <event-group collapsed="1" description="" title="Spit collision with segment">
+                <event-group description="" title="Spit collision with segment">
                     <sub-events>
                         <event-block>
                             <conditions>
@@ -769,6 +761,7 @@
                                                                     </actions>
                                                                     <sub-events>
                                                                         <comment></comment>
+                                                                        <comment>set the strength of the new head to the number of segments + the health for the head(which is 40 by default)</comment>
                                                                         <event-block>
                                                                             <conditions>
                                                                                 <condition id="-13" name="Pick nth instance" type="System">
@@ -788,6 +781,10 @@
                                                                                 <action id="-11" name="Add to" type="head">
                                                                                     <param id="0" name="Instance variable">numberOfSegments</param>
                                                                                     <param id="1" name="Value">1</param>
+                                                                                </action>
+                                                                                <action id="-10" name="Set value" type="head">
+                                                                                    <param id="0" name="Instance variable">totalStrength</param>
+                                                                                    <param id="1" name="Value">head.numberOfSegments*20+head.health</param>
                                                                                 </action>
                                                                                 <action id="0" name="Log Text" type="ChromeConsole">
                                                                                     <param id="0" name="Data">&quot;numberSegments after inc:&quot; &amp; head.numberOfSegments &amp; &quot; for headUID:&quot; &amp; head.UID &amp; &quot;, headIID: &quot; &amp;head.IID</param>
@@ -844,6 +841,7 @@
                                                     </sub-events>
                                                 </event-block>
                                                 <comment>set the number of segments of the OLD head to one decreased number; the lastSegmentNumber of the old head must be set to the frontIID</comment>
+                                                <comment>NOTE: the direct setting is a dirty hack! basically, the new strength would be the exact health values</comment>
                                                 <event-block>
                                                     <conditions>
                                                         <condition id="-13" name="Pick nth instance" type="System">
@@ -855,6 +853,10 @@
                                                         <action id="-10" name="Set value" type="head">
                                                             <param id="0" name="Instance variable">numberOfSegments</param>
                                                             <param id="1" name="Value">localSegmentNumberInSnake-1</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" type="head">
+                                                            <param id="0" name="Instance variable">totalStrength</param>
+                                                            <param id="1" name="Value">head.numberOfSegments*20+head.health</param>
                                                         </action>
                                                     </actions>
                                                     <sub-events>
@@ -1064,6 +1066,18 @@
                     </actions>
                 </event-block>
             </sub-events>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On key pressed" type="Keyboard">
+                    <param id="0" name="Key">27 (Esc)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" type="System">
+                    <param id="0" name="Layout">startscreen</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>
