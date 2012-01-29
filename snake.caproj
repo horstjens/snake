@@ -10,11 +10,12 @@
         <plugin id="Mouse" version="1">Mouse</plugin>
         <plugin id="Sprite" version="1">Sprite</plugin>
         <plugin id="Text" version="1">Text</plugin>
-        <plugin id="chromeconsole" version="0.100000001">Chrome Console</plugin>
         <plugin id="TextBox" version="1">Text box</plugin>
         <plugin id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin id="chromeconsole" version="0.100000001">Chrome Console</plugin>
     </used-plugins>
     <used-behaviors>
+        <behavior id="Bullet" version="1">Bullet</behavior>
         <behavior id="wrap" version="1">Wrap</behavior>
     </used-behaviors>
     <configurations>
@@ -427,6 +428,11 @@
         <global-instance type="ChromeConsole" />
         <global-instance type="Mouse" />
     </global-instances>
-    <sounds-folder expanded="1" />
+    <sounds-folder expanded="1">
+        <file name="pflopp1.m4a" />
+        <file name="pflopp2.m4a" />
+        <file name="rattlesnake.m4a" />
+        <file name="wind.m4a" />
+    </sounds-folder>
     <music-folder expanded="1" />
 </c2project>
