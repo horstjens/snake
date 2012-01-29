@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 2</name>
     <events>
+        <variable comment="to decide if and what sound is to be played" name="random_number_for_sound" type="number">0</variable>
         <event-block>
             <conditions>
                 <condition id="-2" name="On start of layout" type="System" />
@@ -130,18 +131,22 @@
                     <param id="0" name="Instance variable">hitpoints</param>
                     <param id="1" name="Value">1</param>
                 </action>
+                <action id="0" name="Play" type="Audio">
+                    <param id="0" name="Audio file">pflopp1</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
             </actions>
             <sub-events>
                 <event-block>
                     <conditions>
-                        <condition id="-7" name="Compare instance variable" type="head">
+                        <condition disabled="1" id="-7" name="Compare instance variable" type="head">
                             <param id="0" name="Instance variable">hitpoints</param>
                             <param id="1" name="Comparison">3</param>
                             <param id="2" name="Value">0</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-9" name="Destroy" type="head" />
+                        <action disabled="1" id="-9" name="Destroy" type="head" />
                     </actions>
                 </event-block>
             </sub-events>
@@ -157,19 +162,72 @@
                     <param id="0" name="Instance variable">hitpoints</param>
                     <param id="1" name="Value">1</param>
                 </action>
+                <action id="0" name="Play" type="Audio">
+                    <param id="0" name="Audio file">pflopp2</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
             </actions>
             <sub-events>
                 <event-block>
                     <conditions>
-                        <condition id="-7" name="Compare instance variable" type="segment">
+                        <condition disabled="1" id="-7" name="Compare instance variable" type="segment">
                             <param id="0" name="Instance variable">hitpoints</param>
                             <param id="1" name="Comparison">3</param>
                             <param id="2" name="Value">0</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-9" name="Destroy" type="segment" />
+                        <action disabled="1" id="-9" name="Destroy" type="segment" />
                     </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="-6" name="Every X seconds" type="System">
+                    <param id="0" name="Interval (seconds)">15</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" type="System">
+                    <param id="0" name="Variable">random_number_for_sound</param>
+                    <param id="1" name="Value">int(random(3))</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block>
+                    <conditions>
+                        <condition id="-8" name="Compare two values" type="System">
+                            <param id="0" name="First value">random_number_for_sound</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" type="Audio">
+                            <param id="0" name="Audio file">rattlesnake</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="-8" name="Compare two values" type="System">
+                            <param id="0" name="First value">random_number_for_sound</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" type="Audio">
+                            <param id="0" name="Audio file">wind</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block>
+                    <conditions />
+                    <actions />
                 </event-block>
             </sub-events>
         </event-block>
