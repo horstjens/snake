@@ -10,11 +10,7 @@
             <conditions>
                 <condition id="-2" name="On start of layout" type="System" />
             </conditions>
-            <actions>
-                <action behavior="8Direction" id="8" name="Set enabled" type="head">
-                    <param id="0" name="State">0</param>
-                </action>
-            </actions>
+            <actions />
             <sub-events>
                 <event-block>
                     <conditions>
@@ -22,11 +18,7 @@
                             <param id="0" name="Object">head</param>
                         </condition>
                     </conditions>
-                    <actions>
-                        <action behavior="8Direction" id="3" name="Set speed" type="head">
-                            <param id="0" name="Speed">200</param>
-                        </action>
-                    </actions>
+                    <actions />
                 </event-block>
                 <event-block>
                     <conditions>

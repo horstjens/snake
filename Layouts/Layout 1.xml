@@ -39,16 +39,6 @@
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Wrap" />
-                        <behavior-instance type="8Direction">
-                            <properties>
-                                <max-speed>200</max-speed>
-                                <acceleration>600</acceleration>
-                                <deceleration>0</deceleration>
-                                <directions>4 directions</directions>
-                                <set-angle>360 degree (smooth)</set-angle>
-                                <default-controls>Yes</default-controls>
-                            </properties>
-                        </behavior-instance>
                     </behavior-instances>
                     <world>
                         <x>286</x>
@@ -260,16 +250,6 @@
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Wrap" />
-                        <behavior-instance type="8Direction">
-                            <properties>
-                                <max-speed>200</max-speed>
-                                <acceleration>600</acceleration>
-                                <deceleration>0</deceleration>
-                                <directions>4 directions</directions>
-                                <set-angle>360 degree (smooth)</set-angle>
-                                <default-controls>No</default-controls>
-                            </properties>
-                        </behavior-instance>
                     </behavior-instances>
                     <world>
                         <x>134</x>

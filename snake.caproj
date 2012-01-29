@@ -13,7 +13,6 @@
         <plugin id="chromeconsole" version="0.100000001">Chrome Console</plugin>
     </used-plugins>
     <used-behaviors>
-        <behavior id="EightDir" version="1">8 Direction</behavior>
         <behavior id="Bullet" version="1">Bullet</behavior>
         <behavior id="wrap" version="1">Wrap</behavior>
     </used-behaviors>
@@ -45,9 +44,6 @@
             <behaviors>
                 <behavior-type name="Wrap">
                     <behavior id="wrap" />
-                </behavior-type>
-                <behavior-type name="8Direction">
-                    <behavior id="EightDir" />
                 </behavior-type>
             </behaviors>
             <animation-folder expanded="1">
