@@ -127,7 +127,7 @@
             </conditions>
             <actions>
                 <action id="-12" name="Subtract from" type="head">
-                    <param id="0" name="Instance variable">hitpoints</param>
+                    <param id="0" name="Instance variable">health</param>
                     <param id="1" name="Value">1</param>
                 </action>
             </actions>
@@ -135,7 +135,7 @@
                 <event-block>
                     <conditions>
                         <condition id="-7" name="Compare instance variable" type="head">
-                            <param id="0" name="Instance variable">hitpoints</param>
+                            <param id="0" name="Instance variable">health</param>
                             <param id="1" name="Comparison">3</param>
                             <param id="2" name="Value">0</param>
                         </condition>
@@ -154,7 +154,7 @@
             </conditions>
             <actions>
                 <action id="-12" name="Subtract from" type="segment">
-                    <param id="0" name="Instance variable">hitpoints</param>
+                    <param id="0" name="Instance variable">health</param>
                     <param id="1" name="Value">1</param>
                 </action>
             </actions>
@@ -162,7 +162,7 @@
                 <event-block>
                     <conditions>
                         <condition id="-7" name="Compare instance variable" type="segment">
-                            <param id="0" name="Instance variable">hitpoints</param>
+                            <param id="0" name="Instance variable">health</param>
                             <param id="1" name="Comparison">3</param>
                             <param id="2" name="Value">0</param>
                         </condition>

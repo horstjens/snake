@@ -35,7 +35,12 @@
                         <lastSegementUID>-1</lastSegementUID>
                         <lastSegmentIID>-1</lastSegmentIID>
                         <player_number>0</player_number>
-                        <hitpoints>3</hitpoints>
+                        <health>40</health>
+                        <initialHealth>40</initialHealth>
+                        <totalStrength>40</totalStrength>
+                        <initialWidth>74</initialWidth>
+                        <initialHeight>64</initialHeight>
+                        <scaleFactor>0.3</scaleFactor>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Wrap" />
@@ -59,6 +64,9 @@
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
                     </properties>
+                    <instance-variables>
+                        <health>3</health>
+                    </instance-variables>
                     <world>
                         <x>415</x>
                         <y>164</y>
@@ -78,6 +86,9 @@
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
                     </properties>
+                    <instance-variables>
+                        <health>3</health>
+                    </instance-variables>
                     <world>
                         <x>517</x>
                         <y>361</y>
@@ -97,6 +108,9 @@
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
                     </properties>
+                    <instance-variables>
+                        <health>3</health>
+                    </instance-variables>
                     <world>
                         <x>132</x>
                         <y>599</y>
@@ -116,6 +130,9 @@
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
                     </properties>
+                    <instance-variables>
+                        <health>3</health>
+                    </instance-variables>
                     <world>
                         <x>686</x>
                         <y>482</y>
@@ -135,6 +152,9 @@
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
                     </properties>
+                    <instance-variables>
+                        <health>3</health>
+                    </instance-variables>
                     <world>
                         <x>141</x>
                         <y>94</y>
@@ -163,8 +183,11 @@
                         <trailingSegmentIID>-1</trailingSegmentIID>
                         <player_number>0</player_number>
                         <segmentNumberInSnake>1</segmentNumberInSnake>
-                        <hitpoints>5</hitpoints>
                         <enabled>true</enabled>
+                        <health>20</health>
+                        <initialHealth>20</initialHealth>
+                        <initialSize>64</initialSize>
+                        <scaleFactor>0.3</scaleFactor>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Wrap" />
@@ -188,6 +211,12 @@
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
                     </properties>
+                    <instance-variables>
+                        <initialStrength>40</initialStrength>
+                        <strength>0</strength>
+                        <initialSize>16</initialSize>
+                        <scaleFactor>0.3</scaleFactor>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Bullet">
                             <properties>
@@ -198,6 +227,7 @@
                                 <set-angle>No</set-angle>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
                         <behavior-instance type="Wrap" />
                     </behavior-instances>
                     <world>
@@ -246,7 +276,12 @@
                         <lastSegementUID>-1</lastSegementUID>
                         <lastSegmentIID>-1</lastSegmentIID>
                         <player_number>1</player_number>
-                        <hitpoints>3</hitpoints>
+                        <health>40</health>
+                        <initialHealth>40</initialHealth>
+                        <totalStrength>40</totalStrength>
+                        <initialWidth>74</initialWidth>
+                        <initialHeight>64</initialHeight>
+                        <scaleFactor>0.3</scaleFactor>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Wrap" />
@@ -301,8 +336,11 @@
                         <trailingSegmentIID>-1</trailingSegmentIID>
                         <player_number>0</player_number>
                         <segmentNumberInSnake>1</segmentNumberInSnake>
-                        <hitpoints>5</hitpoints>
                         <enabled>true</enabled>
+                        <health>20</health>
+                        <initialHealth>20</initialHealth>
+                        <initialSize>64</initialSize>
+                        <scaleFactor>0.3</scaleFactor>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Wrap" />
@@ -335,8 +373,11 @@
                         <trailingSegmentIID>-1</trailingSegmentIID>
                         <player_number>0</player_number>
                         <segmentNumberInSnake>1</segmentNumberInSnake>
-                        <hitpoints>5</hitpoints>
                         <enabled>true</enabled>
+                        <health>20</health>
+                        <initialHealth>20</initialHealth>
+                        <initialSize>64</initialSize>
+                        <scaleFactor>0.3</scaleFactor>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Wrap" />
@@ -382,6 +423,9 @@
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
                     </properties>
+                    <instance-variables>
+                        <health>3</health>
+                    </instance-variables>
                     <world>
                         <x>98</x>
                         <y>522</y>
@@ -401,6 +445,9 @@
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
                     </properties>
+                    <instance-variables>
+                        <health>3</health>
+                    </instance-variables>
                     <world>
                         <x>65</x>
                         <y>379</y>
@@ -420,6 +467,9 @@
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
                     </properties>
+                    <instance-variables>
+                        <health>3</health>
+                    </instance-variables>
                     <world>
                         <x>99</x>
                         <y>364</y>
@@ -439,6 +489,9 @@
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
                     </properties>
+                    <instance-variables>
+                        <health>3</health>
+                    </instance-variables>
                     <world>
                         <x>121</x>
                         <y>461</y>
@@ -458,6 +511,9 @@
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
                     </properties>
+                    <instance-variables>
+                        <health>3</health>
+                    </instance-variables>
                     <world>
                         <x>174</x>
                         <y>454</y>
@@ -477,6 +533,9 @@
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
                     </properties>
+                    <instance-variables>
+                        <health>3</health>
+                    </instance-variables>
                     <world>
                         <x>226</x>
                         <y>465</y>
@@ -496,6 +555,9 @@
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
                     </properties>
+                    <instance-variables>
+                        <health>3</health>
+                    </instance-variables>
                     <world>
                         <x>153</x>
                         <y>376</y>
@@ -515,6 +577,9 @@
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
                     </properties>
+                    <instance-variables>
+                        <health>3</health>
+                    </instance-variables>
                     <world>
                         <x>171</x>
                         <y>478</y>
@@ -534,6 +599,9 @@
                         <initial-frame>0</initial-frame>
                         <effect>(none)</effect>
                     </properties>
+                    <instance-variables>
+                        <health>3</health>
+                    </instance-variables>
                     <world>
                         <x>36</x>
                         <y>363</y>

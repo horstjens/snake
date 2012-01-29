@@ -4,13 +4,19 @@
     <name>Event sheet 1</name>
     <events>
         <include>Event sheet 2</include>
+        <variable comment="add this as global to avoid accessing a segment at recalculation the new health of the head" name="segmentInitialHealth" type="number">0</variable>
         <variable name="dist" type="number">0</variable>
         <comment>8direction is disabled for testing movement with only 2 buttons</comment>
         <event-block>
             <conditions>
                 <condition id="-2" name="On start of layout" type="System" />
             </conditions>
-            <actions />
+            <actions>
+                <action id="-9" name="Set value" type="System">
+                    <param id="0" name="Variable">dist</param>
+                    <param id="1" name="Value">segment(0).initialHealth</param>
+                </action>
+            </actions>
             <sub-events>
                 <event-block>
                     <conditions>
@@ -71,6 +77,16 @@
                     <param id="0" name="Frame number">head.player_number</param>
                 </action>
                 <action id="2" name="Stop" type="spit" />
+                <action id="-10" name="Set value" type="spit">
+                    <param id="0" name="Instance variable">strength</param>
+                    <param id="1" name="Value">head.totalStrength</param>
+                </action>
+                <action id="-5" name="Set width" type="spit">
+                    <param id="0" name="Width">self.initialSize*(1+ ((self.strength/self.initialStrength-1)*self.scaleFactor))</param>
+                </action>
+                <action id="-6" name="Set height" type="spit">
+                    <param id="0" name="Height">self.initialSize*(1+ ((self.strength/self.initialStrength-1)*self.scaleFactor))</param>
+                </action>
             </actions>
         </event-block>
         <event-block disabled="1">
@@ -96,7 +112,7 @@
                 <action disabled="1" id="2" name="Stop" type="spit" />
             </actions>
         </event-block>
-        <event-group description="" title="Movement">
+        <event-group collapsed="1" description="" title="Movement">
             <sub-events>
                 <comment>mention that at logging, only the first action is output! so not correct for all affected segments, but only the first!</comment>
                 <event-block>
@@ -246,214 +262,277 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-block>
-            <conditions>
-                <condition id="0" name="On collision with another object" type="head">
-                    <param id="0" name="Object">food</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Destroy" type="food" />
-            </actions>
+        <event-group description="handle collisions between head and food" title="Collisions">
             <sub-events>
-                <variable name="createdSegmentIID" type="number">0</variable>
-                <variable name="previousLastSegmentUID" type="number">0</variable>
                 <event-block>
                     <conditions>
-                        <condition id="-7" inverted="1" name="Compare instance variable" type="head">
-                            <param id="0" name="Instance variable">numberOfSegments</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">0</param>
+                        <condition id="0" name="On collision with another object" type="head">
+                            <param id="0" name="Object">food</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-3" name="Create object" type="System">
-                            <param id="0" name="Object to create">segment</param>
-                            <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">segment(head.lastSegmentIID).ImagePointX(1)</param>
-                            <param id="3" name="Y">segment(head.lastSegmentIID).ImagePointY(1)</param>
-                        </action>
-                        <action id="-10" name="Set value" type="segment">
-                            <param id="0" name="Instance variable">targetSegmentUID</param>
-                            <param id="1" name="Value">head.lastSegementUID</param>
-                        </action>
-                        <action id="-10" name="Set value" type="segment">
-                            <param id="0" name="Instance variable">targetSegmentIID</param>
-                            <param id="1" name="Value">head.lastSegmentIID</param>
-                        </action>
-                        <action id="-10" name="Set value" type="head">
-                            <param id="0" name="Instance variable">lastSegementUID</param>
-                            <param id="1" name="Value">segment.UID</param>
-                        </action>
-                        <action id="-10" name="Set value" type="head">
-                            <param id="0" name="Instance variable">lastSegmentIID</param>
-                            <param id="1" name="Value">segment.IID</param>
-                        </action>
-                        <action id="-10" name="Set value" type="segment">
-                            <param id="0" name="Instance variable">headUID</param>
-                            <param id="1" name="Value">head.UID</param>
-                        </action>
-                        <action id="-10" name="Set value" type="segment">
-                            <param id="0" name="Instance variable">headIID</param>
-                            <param id="1" name="Value">head.IID</param>
-                        </action>
-                        <action id="-11" name="Add to" type="head">
-                            <param id="0" name="Instance variable">numberOfSegments</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="-10" name="Set value" type="segment">
-                            <param id="0" name="Instance variable">segmentNumberInSnake</param>
-                            <param id="1" name="Value">head.numberOfSegments</param>
-                        </action>
-                        <action id="-9" name="Set value" type="System">
-                            <param id="0" name="Variable">createdSegmentIID</param>
-                            <param id="1" name="Value">segment.IID</param>
-                        </action>
-                        <action id="-9" name="Set value" type="System">
-                            <param id="0" name="Variable">previousLastSegmentUID</param>
-                            <param id="1" name="Value">segment.targetSegmentUID</param>
-                        </action>
-                        <action id="-10" name="Set value" type="segment">
-                            <param id="0" name="Instance variable">player_number</param>
-                            <param id="1" name="Value">head.player_number</param>
-                        </action>
-                        <action id="0" name="Log Text" type="ChromeConsole">
-                            <param id="0" name="Data">&quot;___new segment for non-empty snake with head iid&quot; &amp; head.IID &amp; &quot; uid&quot; &amp; head.UID &amp; &quot;, segNum: &quot; &amp; head.numberOfSegments &amp; &quot;, created IID: &quot; &amp; segment.IID &amp; &quot; uid&quot; &amp; segment.UID</param>
-                        </action>
+                        <action id="-9" name="Destroy" type="food" />
                     </actions>
                     <sub-events>
+                        <event-group description="" title="Health and Strength Calculation">
+                            <sub-events>
+                                <comment>the total strength is increased by the current numberOfSegments which all get upgraded with food.health, the health add for the head, and the health of the new segment</comment>
+                                <event-block>
+                                    <conditions />
+                                    <actions>
+                                        <action id="-11" name="Add to" type="head">
+                                            <param id="0" name="Instance variable">health</param>
+                                            <param id="1" name="Value">food.health</param>
+                                        </action>
+                                        <action id="-11" name="Add to" type="head">
+                                            <param id="0" name="Instance variable">totalStrength</param>
+                                            <param id="1" name="Value">food.health+head.numberOfSegments*food.health + segmentInitialHealth</param>
+                                        </action>
+                                        <action id="-5" name="Set width" type="head">
+                                            <param id="0" name="Width">head.initialWidth*(1+ ((head.health/head.initialHealth-1)*head.scaleFactor))</param>
+                                        </action>
+                                        <action id="-6" name="Set height" type="head">
+                                            <param id="0" name="Height">head.initialHeight*(1+ ((head.health/head.initialHealth-1)*head.scaleFactor))</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>health and strength calcluation</comment>
+                                <event-block>
+                                    <conditions>
+                                        <condition id="-19" name="Pick all" type="System">
+                                            <param id="0" name="Object">segment</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block>
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" type="segment">
+                                                    <param id="0" name="Instance variable">headIID</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">head.IID</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-11" name="Add to" type="segment">
+                                                    <param id="0" name="Instance variable">health</param>
+                                                    <param id="1" name="Value">food.health</param>
+                                                </action>
+                                                <action id="-5" name="Set width" type="segment">
+                                                    <param id="0" name="Width">segment.initialSize*(1+ ((segment.health/segment.initialHealth-1)*segment.scaleFactor))</param>
+                                                </action>
+                                                <action id="-6" name="Set height" type="segment">
+                                                    <param id="0" name="Height">segment.initialSize*(1+ ((segment.health/segment.initialHealth-1)*segment.scaleFactor))</param>
+                                                </action>
+                                                <action id="0" name="Log Text" type="ChromeConsole">
+                                                    <param id="0" name="Data">&quot;new health value: &quot; &amp; segment.health &amp; &quot;, scale factor: &quot; &amp; segment.health/segment.initialHealth</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <variable name="createdSegmentIID" type="number">0</variable>
+                        <variable name="previousLastSegmentUID" type="number">0</variable>
                         <event-block>
                             <conditions>
-                                <condition id="-7" name="Compare instance variable" type="head">
-                                    <param id="0" name="Instance variable">player_number</param>
+                                <condition id="-7" inverted="1" name="Compare instance variable" type="head">
+                                    <param id="0" name="Instance variable">numberOfSegments</param>
                                     <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">1</param>
+                                    <param id="2" name="Value">0</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="5" name="Set frame" type="segment">
-                                    <param id="0" name="Frame number">1</param>
+                                <action id="-3" name="Create object" type="System">
+                                    <param id="0" name="Object to create">segment</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="X">segment(head.lastSegmentIID).ImagePointX(1)</param>
+                                    <param id="3" name="Y">segment(head.lastSegmentIID).ImagePointY(1)</param>
+                                </action>
+                                <action id="-10" name="Set value" type="segment">
+                                    <param id="0" name="Instance variable">targetSegmentUID</param>
+                                    <param id="1" name="Value">head.lastSegementUID</param>
+                                </action>
+                                <action id="-10" name="Set value" type="segment">
+                                    <param id="0" name="Instance variable">targetSegmentIID</param>
+                                    <param id="1" name="Value">head.lastSegmentIID</param>
+                                </action>
+                                <action id="-10" name="Set value" type="head">
+                                    <param id="0" name="Instance variable">lastSegementUID</param>
+                                    <param id="1" name="Value">segment.UID</param>
+                                </action>
+                                <action id="-10" name="Set value" type="head">
+                                    <param id="0" name="Instance variable">lastSegmentIID</param>
+                                    <param id="1" name="Value">segment.IID</param>
+                                </action>
+                                <action id="-10" name="Set value" type="segment">
+                                    <param id="0" name="Instance variable">headUID</param>
+                                    <param id="1" name="Value">head.UID</param>
+                                </action>
+                                <action id="-10" name="Set value" type="segment">
+                                    <param id="0" name="Instance variable">headIID</param>
+                                    <param id="1" name="Value">head.IID</param>
+                                </action>
+                                <action id="-11" name="Add to" type="head">
+                                    <param id="0" name="Instance variable">numberOfSegments</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-10" name="Set value" type="segment">
+                                    <param id="0" name="Instance variable">segmentNumberInSnake</param>
+                                    <param id="1" name="Value">head.numberOfSegments</param>
+                                </action>
+                                <action id="-9" name="Set value" type="System">
+                                    <param id="0" name="Variable">createdSegmentIID</param>
+                                    <param id="1" name="Value">segment.IID</param>
+                                </action>
+                                <action id="-9" name="Set value" type="System">
+                                    <param id="0" name="Variable">previousLastSegmentUID</param>
+                                    <param id="1" name="Value">segment.targetSegmentUID</param>
+                                </action>
+                                <action id="-10" name="Set value" type="segment">
+                                    <param id="0" name="Instance variable">player_number</param>
+                                    <param id="1" name="Value">head.player_number</param>
+                                </action>
+                                <action id="0" name="Log Text" type="ChromeConsole">
+                                    <param id="0" name="Data">&quot;___new segment for non-empty snake with head iid&quot; &amp; head.IID &amp; &quot; uid&quot; &amp; head.UID &amp; &quot;, segNum: &quot; &amp; head.numberOfSegments &amp; &quot;, created IID: &quot; &amp; segment.IID &amp; &quot; uid&quot; &amp; segment.UID</param>
                                 </action>
                             </actions>
-                        </event-block>
-                        <comment>wihtout this pick, only the head would be picked!</comment>
-                        <event-block>
-                            <conditions>
-                                <condition id="-19" name="Pick all" type="System">
-                                    <param id="0" name="Object">segment</param>
-                                </condition>
-                            </conditions>
-                            <actions />
                             <sub-events>
                                 <event-block>
                                     <conditions>
-                                        <condition id="-14" name="Pick by unique ID" type="segment">
-                                            <param id="0" name="Unique ID">previousLastSegmentUID</param>
+                                        <condition id="-7" name="Compare instance variable" type="head">
+                                            <param id="0" name="Instance variable">player_number</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-10" name="Set value" type="segment">
-                                            <param id="0" name="Instance variable">trailingSegmentIID</param>
-                                            <param id="1" name="Value">createdSegmentIID</param>
+                                        <action id="5" name="Set frame" type="segment">
+                                            <param id="0" name="Frame number">1</param>
                                         </action>
-                                        <action id="0" name="Set text" type="DebugText1">
-                                            <param id="0" name="Text">&quot;trailingIID:&quot; &amp; segment.trailingSegmentIID</param>
+                                    </actions>
+                                </event-block>
+                                <comment>wihtout this pick, only the head would be picked!</comment>
+                                <event-block>
+                                    <conditions>
+                                        <condition id="-19" name="Pick all" type="System">
+                                            <param id="0" name="Object">segment</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block>
+                                            <conditions>
+                                                <condition id="-14" name="Pick by unique ID" type="segment">
+                                                    <param id="0" name="Unique ID">previousLastSegmentUID</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" type="segment">
+                                                    <param id="0" name="Instance variable">trailingSegmentIID</param>
+                                                    <param id="1" name="Value">createdSegmentIID</param>
+                                                </action>
+                                                <action id="0" name="Set text" type="DebugText1">
+                                                    <param id="0" name="Text">&quot;trailingIID:&quot; &amp; segment.trailingSegmentIID</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <comment>this handles the case if the snake has no segments</comment>
+                        <event-block>
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" type="head">
+                                    <param id="0" name="Instance variable">numberOfSegments</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" type="System">
+                                    <param id="0" name="Object to create">segment</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="X">head.ImagePointX(1)</param>
+                                    <param id="3" name="Y">head.ImagePointY(1)</param>
+                                </action>
+                                <action id="-10" name="Set value" type="segment">
+                                    <param id="0" name="Instance variable">targetSegmentUID</param>
+                                    <param id="1" name="Value">head.UID</param>
+                                </action>
+                                <action id="-10" name="Set value" type="segment">
+                                    <param id="0" name="Instance variable">targetSegmentIID</param>
+                                    <param id="1" name="Value">head.IID</param>
+                                </action>
+                                <action id="-10" name="Set value" type="head">
+                                    <param id="0" name="Instance variable">lastSegementUID</param>
+                                    <param id="1" name="Value">segment.UID</param>
+                                </action>
+                                <action id="-10" name="Set value" type="head">
+                                    <param id="0" name="Instance variable">lastSegmentIID</param>
+                                    <param id="1" name="Value">segment.IID</param>
+                                </action>
+                                <action id="-10" name="Set value" type="segment">
+                                    <param id="0" name="Instance variable">headUID</param>
+                                    <param id="1" name="Value">head.UID</param>
+                                </action>
+                                <action id="-10" name="Set value" type="segment">
+                                    <param id="0" name="Instance variable">headIID</param>
+                                    <param id="1" name="Value">head.IID</param>
+                                </action>
+                                <action id="-11" name="Add to" type="head">
+                                    <param id="0" name="Instance variable">numberOfSegments</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-10" name="Set value" type="segment">
+                                    <param id="0" name="Instance variable">segmentNumberInSnake</param>
+                                    <param id="1" name="Value">head.numberOfSegments</param>
+                                </action>
+                                <action id="-10" name="Set value" type="segment">
+                                    <param id="0" name="Instance variable">player_number</param>
+                                    <param id="1" name="Value">head.player_number</param>
+                                </action>
+                                <action id="0" name="Log Text" type="ChromeConsole">
+                                    <param id="0" name="Data">&quot;___new segment for empty snake with head iid&quot; &amp; head.IID &amp; &quot; uid&quot; &amp; head.UID &amp; &quot;, segNum(should be 1): &quot; &amp; head.numberOfSegments &amp; &quot;, created IID: &quot; &amp; segment.IID &amp; &quot; uid&quot; &amp; segment.UID</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block>
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" type="head">
+                                            <param id="0" name="Instance variable">player_number</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" type="segment">
+                                            <param id="0" name="Frame number">1</param>
                                         </action>
                                     </actions>
                                 </event-block>
                             </sub-events>
                         </event-block>
-                    </sub-events>
-                </event-block>
-                <comment>this handles the case if the snake has no segments</comment>
-                <event-block>
-                    <conditions>
-                        <condition id="-7" name="Compare instance variable" type="head">
-                            <param id="0" name="Instance variable">numberOfSegments</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">0</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-3" name="Create object" type="System">
-                            <param id="0" name="Object to create">segment</param>
-                            <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">head.ImagePointX(1)</param>
-                            <param id="3" name="Y">head.ImagePointY(1)</param>
-                        </action>
-                        <action id="-10" name="Set value" type="segment">
-                            <param id="0" name="Instance variable">targetSegmentUID</param>
-                            <param id="1" name="Value">head.UID</param>
-                        </action>
-                        <action id="-10" name="Set value" type="segment">
-                            <param id="0" name="Instance variable">targetSegmentIID</param>
-                            <param id="1" name="Value">head.IID</param>
-                        </action>
-                        <action id="-10" name="Set value" type="head">
-                            <param id="0" name="Instance variable">lastSegementUID</param>
-                            <param id="1" name="Value">segment.UID</param>
-                        </action>
-                        <action id="-10" name="Set value" type="head">
-                            <param id="0" name="Instance variable">lastSegmentIID</param>
-                            <param id="1" name="Value">segment.IID</param>
-                        </action>
-                        <action id="-10" name="Set value" type="segment">
-                            <param id="0" name="Instance variable">headUID</param>
-                            <param id="1" name="Value">head.UID</param>
-                        </action>
-                        <action id="-10" name="Set value" type="segment">
-                            <param id="0" name="Instance variable">headIID</param>
-                            <param id="1" name="Value">head.IID</param>
-                        </action>
-                        <action id="-11" name="Add to" type="head">
-                            <param id="0" name="Instance variable">numberOfSegments</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="-10" name="Set value" type="segment">
-                            <param id="0" name="Instance variable">segmentNumberInSnake</param>
-                            <param id="1" name="Value">head.numberOfSegments</param>
-                        </action>
-                        <action id="-10" name="Set value" type="segment">
-                            <param id="0" name="Instance variable">player_number</param>
-                            <param id="1" name="Value">head.player_number</param>
-                        </action>
-                        <action id="0" name="Log Text" type="ChromeConsole">
-                            <param id="0" name="Data">&quot;___new segment for empty snake with head iid&quot; &amp; head.IID &amp; &quot; uid&quot; &amp; head.UID &amp; &quot;, segNum(should be 1): &quot; &amp; head.numberOfSegments &amp; &quot;, created IID: &quot; &amp; segment.IID &amp; &quot; uid&quot; &amp; segment.UID</param>
-                        </action>
-                    </actions>
-                    <sub-events>
-                        <event-block>
+                        <event-block disabled="1">
                             <conditions>
-                                <condition id="-7" name="Compare instance variable" type="head">
-                                    <param id="0" name="Instance variable">player_number</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">1</param>
+                                <condition disabled="1" id="-13" name="Pick nth instance" type="System">
+                                    <param id="0" name="Object">segment</param>
+                                    <param id="1" name="Instance">-1</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="5" name="Set frame" type="segment">
-                                    <param id="0" name="Frame number">1</param>
+                                <action disabled="1" id="-10" name="Set value" type="head">
+                                    <param id="0" name="Instance variable">lastSegementUID</param>
+                                    <param id="1" name="Value">segment.IID</param>
                                 </action>
                             </actions>
                         </event-block>
                     </sub-events>
                 </event-block>
-                <event-block disabled="1">
-                    <conditions>
-                        <condition disabled="1" id="-13" name="Pick nth instance" type="System">
-                            <param id="0" name="Object">segment</param>
-                            <param id="1" name="Instance">-1</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action disabled="1" id="-10" name="Set value" type="head">
-                            <param id="0" name="Instance variable">lastSegementUID</param>
-                            <param id="1" name="Value">segment.IID</param>
-                        </action>
-                    </actions>
-                </event-block>
             </sub-events>
-        </event-block>
+        </event-group>
         <event-block>
             <conditions>
                 <condition id="-1" name="Every tick" type="System" />

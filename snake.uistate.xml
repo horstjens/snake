@@ -12,9 +12,9 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     <open-tabs>
         <layout>Layout 1</layout>
         <layout>startscreen</layout>
-        <layout active="1">creditscreen</layout>
+        <layout>creditscreen</layout>
         <layout>helpscreen</layout>
-        <event-sheet>Event sheet 1</event-sheet>
+        <event-sheet active="1">Event sheet 1</event-sheet>
         <event-sheet>Event sheet 2</event-sheet>
         <event-sheet>startscreen events</event-sheet>
         <event-sheet>creditscreen events</event-sheet>
