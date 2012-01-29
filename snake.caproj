@@ -51,6 +51,7 @@
                 <instance-variable name="initialWidth" type="number" />
                 <instance-variable name="initialHeight" type="number" />
                 <instance-variable name="scaleFactor" type="number" />
+                <instance-variable name="enabled" type="boolean" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Wrap">

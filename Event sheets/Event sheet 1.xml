@@ -56,8 +56,21 @@
                 </action>
             </actions>
         </event-block>
-        <event-group collapsed="1" description="" title="Movement">
+        <event-group description="" title="Movement">
             <sub-events>
+                <event-block>
+                    <conditions>
+                        <condition id="-1" name="Every tick" type="System" />
+                        <condition id="-8" name="Is boolean instance variable set" type="head">
+                            <param id="0" name="Instance variable">enabled</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-17" name="Move forward" type="head">
+                            <param id="0" name="Distance">3</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <comment>mention that at logging, only the first action is output! so not correct for all affected segments, but only the first!</comment>
                 <event-block>
                     <conditions>
@@ -477,16 +490,6 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-block>
-            <conditions>
-                <condition id="-1" name="Every tick" type="System" />
-            </conditions>
-            <actions>
-                <action id="-17" name="Move forward" type="head">
-                    <param id="0" name="Distance">3</param>
-                </action>
-            </actions>
-        </event-block>
         <event-group description="" title="spit collisions with head and segments">
             <sub-events>
                 <comment>mention that it is NOT safe to destroy objects, as the IIDs change then!!!</comment>
@@ -905,7 +908,46 @@
                                             <param id="2" name="Value">0</param>
                                         </condition>
                                     </conditions>
-                                    <actions />
+                                    <actions>
+                                        <action id="-15" name="Set visible" type="head">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" type="head">
+                                            <param id="0" name="Instance variable">enabled</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-3" name="Set position" type="head">
+                                            <param id="0" name="X">-100</param>
+                                            <param id="1" name="Y">-100</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block>
+                                            <conditions>
+                                                <condition id="-19" name="Pick all" type="System">
+                                                    <param id="0" name="Object">segment</param>
+                                                </condition>
+                                                <condition id="-7" name="Compare instance variable" type="segment">
+                                                    <param id="0" name="Instance variable">headIID</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">head.IID</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-15" name="Set visible" type="segment">
+                                                    <param id="0" name="Visibility">0</param>
+                                                </action>
+                                                <action id="-13" name="Set boolean" type="segment">
+                                                    <param id="0" name="Instance variable">enabled</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                                <action id="-3" name="Set position" type="segment">
+                                                    <param id="0" name="X">-100</param>
+                                                    <param id="1" name="Y">-100</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
                                 </event-block>
                             </sub-events>
                         </event-block>

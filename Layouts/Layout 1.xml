@@ -60,6 +60,7 @@
                         <initialWidth>74</initialWidth>
                         <initialHeight>64</initialHeight>
                         <scaleFactor>0.3</scaleFactor>
+                        <enabled>true</enabled>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Wrap" />
@@ -303,6 +304,7 @@
                         <initialWidth>74</initialWidth>
                         <initialHeight>64</initialHeight>
                         <scaleFactor>0.3</scaleFactor>
+                        <enabled>true</enabled>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Wrap" />
