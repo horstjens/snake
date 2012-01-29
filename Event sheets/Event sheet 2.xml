@@ -196,6 +196,9 @@
                         <action disabled="1" id="0" name="Set text" type="debugtexthorst">
                             <param id="0" name="Text">&quot;time:&quot; &amp; time</param>
                         </action>
+                        <action id="5" name="Set frame" type="spuckenerlaubt0">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block>
@@ -245,9 +248,56 @@
                             <param id="0" name="Variable">cooldown1</param>
                             <param id="1" name="Value">time</param>
                         </action>
+                        <action id="5" name="Set frame" type="spuckenerlaubt1">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
         </event-group>
+        <event-block>
+            <conditions>
+                <condition id="-1" name="Every tick" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block>
+                    <conditions>
+                        <condition id="3" name="Compare frame" type="spuckenerlaubt0">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="Number">0</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" type="System">
+                            <param id="0" name="First value">time - cooldown0</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">cooldowntime0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" type="spuckenerlaubt0">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="-8" name="Compare two values" type="System">
+                            <param id="0" name="First value">time - cooldown1</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">cooldowntime1</param>
+                        </condition>
+                        <condition id="3" name="Compare frame" type="spuckenerlaubt1">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="Number">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" type="spuckenerlaubt1">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
     </events>
 </c2eventsheet>
