@@ -3,8 +3,9 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 2</name>
     <events>
-        <variable comment="cool down time in secs for player1" name="cooldowntime1" type="number">2</variable>
-        <variable comment="cool down time in secs for player0" name="cooldowntime0" type="number">2</variable>
+        <include>Event sheet 3</include>
+        <variable comment="cool down time in secs for player1" name="cooldowntime1" type="number">0.2</variable>
+        <variable comment="cool down time in secs for player0" name="cooldowntime0" type="number">0.2</variable>
         <variable comment="cooldown for player1 before he can spit again" name="cooldown1" type="number">0</variable>
         <variable comment="cooldown for player0 before he can spit again" name="cooldown0" type="number">0</variable>
         <include>resultscreen events</include>
