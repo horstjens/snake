@@ -115,5 +115,209 @@
                 </action>
             </actions>
         </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On click" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+                <condition id="7" name="Cursor is over object" type="Mouse">
+                    <param id="0" name="Object">BernhardLogo</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="8" name="Open URL in new window" type="Browser">
+                    <param id="0" name="URL">&quot;http://maxx-studios.tumblr.com/&quot;</param>
+                    <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On click" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+                <condition id="7" name="Cursor is over object" type="Mouse">
+                    <param id="0" name="Object">bernhardURL</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="8" name="Open URL in new window" type="Browser">
+                    <param id="0" name="URL">&quot;http://maxx-studios.tumblr.com/&quot;</param>
+                    <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On click" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+                <condition id="7" name="Cursor is over object" type="Mouse">
+                    <param id="0" name="Object">BernhardText</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="8" name="Open URL in new window" type="Browser">
+                    <param id="0" name="URL">&quot;http://maxx-studios.tumblr.com/&quot;</param>
+                    <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On click" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+                <condition id="7" name="Cursor is over object" type="Mouse">
+                    <param id="0" name="Object">HorstBild</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="8" name="Open URL in new window" type="Browser">
+                    <param id="0" name="URL">&quot;http://spielend-programmieren.at&quot;</param>
+                    <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On click" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+                <condition id="7" name="Cursor is over object" type="Mouse">
+                    <param id="0" name="Object">HorstLogo</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="8" name="Open URL in new window" type="Browser">
+                    <param id="0" name="URL">&quot;http://spielend-programmieren.at&quot;</param>
+                    <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On click" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+                <condition id="7" name="Cursor is over object" type="Mouse">
+                    <param id="0" name="Object">HorstText</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="8" name="Open URL in new window" type="Browser">
+                    <param id="0" name="URL">&quot;http://spielend-programmieren.at&quot;</param>
+                    <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On click" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+                <condition id="7" name="Cursor is over object" type="Mouse">
+                    <param id="0" name="Object">HorstURL</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="8" name="Open URL in new window" type="Browser">
+                    <param id="0" name="URL">&quot;http://spielend-programmieren.at&quot;</param>
+                    <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On click" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+                <condition id="7" name="Cursor is over object" type="Mouse">
+                    <param id="0" name="Object">LukasBild</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="8" name="Open URL in new window" type="Browser">
+                    <param id="0" name="URL">&quot;http://sound42.com&quot;</param>
+                    <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On click" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+                <condition id="7" name="Cursor is over object" type="Mouse">
+                    <param id="0" name="Object">LukasLogo</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="8" name="Open URL in new window" type="Browser">
+                    <param id="0" name="URL">&quot;http://sound42.com&quot;</param>
+                    <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On click" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+                <condition id="7" name="Cursor is over object" type="Mouse">
+                    <param id="0" name="Object">LukasText</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="8" name="Open URL in new window" type="Browser">
+                    <param id="0" name="URL">&quot;http://sound42.com&quot;</param>
+                    <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On click" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+                <condition id="7" name="Cursor is over object" type="Mouse">
+                    <param id="0" name="Object">ChristianBild</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="8" name="Open URL in new window" type="Browser">
+                    <param id="0" name="URL">&quot;http://gamarillo.com/&quot;</param>
+                    <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On click" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+                <condition id="7" name="Cursor is over object" type="Mouse">
+                    <param id="0" name="Object">ChristianText</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="8" name="Open URL in new window" type="Browser">
+                    <param id="0" name="URL">&quot;http://gamarillo.com/&quot;</param>
+                    <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

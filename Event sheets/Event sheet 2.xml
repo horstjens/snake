@@ -3,6 +3,8 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 2</name>
     <events>
+        <variable name="cooldown2" type="number">0</variable>
+        <variable name="cooldown1" type="number">0</variable>
         <variable comment="to decide if and what sound is to be played" name="random_number_for_sound" type="number">0</variable>
         <event-block>
             <conditions>
