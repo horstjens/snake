@@ -4,6 +4,9 @@
     <name>Event sheet 1</name>
     <events>
         <include>Event sheet 2</include>
+        <comment>when the playerHeadCount &lt;=, the game is over!</comment>
+        <variable name="player1HeadCount" type="number">1</variable>
+        <variable name="player0HeadCount" type="number">1</variable>
         <variable comment="add this as global to avoid accessing a segment at recalculation the new health of the head" name="segmentInitialHealth" type="number">0</variable>
         <variable name="dist" type="number">0</variable>
         <comment>8direction is disabled for testing movement with only 2 buttons</comment>
@@ -15,6 +18,14 @@
                 <action id="-9" name="Set value" type="System">
                     <param id="0" name="Variable">dist</param>
                     <param id="1" name="Value">segment(0).initialHealth</param>
+                </action>
+                <action id="-9" name="Set value" type="System">
+                    <param id="0" name="Variable">player0HeadCount</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" type="System">
+                    <param id="0" name="Variable">player1HeadCount</param>
+                    <param id="1" name="Value">1</param>
                 </action>
             </actions>
             <sub-events>
@@ -494,7 +505,7 @@
             <sub-events>
                 <comment>mention that it is NOT safe to destroy objects, as the IIDs change then!!!</comment>
                 <comment>only collide if the spit is different than the segment&apos;s player_number, so firing to the own snakes is not possible</comment>
-                <event-group description="" title="Spit collision with segment">
+                <event-group collapsed="1" description="" title="Spit collision with segment">
                     <sub-events>
                         <event-block>
                             <conditions>
@@ -651,6 +662,38 @@
                                                                     <param id="1" name="Y">-100</param>
                                                                 </action>
                                                             </actions>
+                                                            <sub-events>
+                                                                <event-block>
+                                                                    <conditions>
+                                                                        <condition id="-7" name="Compare instance variable" type="head">
+                                                                            <param id="0" name="Instance variable">player_number</param>
+                                                                            <param id="1" name="Comparison">0</param>
+                                                                            <param id="2" name="Value">0</param>
+                                                                        </condition>
+                                                                    </conditions>
+                                                                    <actions>
+                                                                        <action id="-10" name="Add to" type="System">
+                                                                            <param id="0" name="Variable">player0HeadCount</param>
+                                                                            <param id="1" name="Value">1</param>
+                                                                        </action>
+                                                                    </actions>
+                                                                </event-block>
+                                                                <event-block>
+                                                                    <conditions>
+                                                                        <condition id="-7" name="Compare instance variable" type="head">
+                                                                            <param id="0" name="Instance variable">player_number</param>
+                                                                            <param id="1" name="Comparison">0</param>
+                                                                            <param id="2" name="Value">1</param>
+                                                                        </condition>
+                                                                    </conditions>
+                                                                    <actions>
+                                                                        <action id="-10" name="Add to" type="System">
+                                                                            <param id="0" name="Variable">player1HeadCount</param>
+                                                                            <param id="1" name="Value">1</param>
+                                                                        </action>
+                                                                    </actions>
+                                                                </event-block>
+                                                            </sub-events>
                                                         </event-block>
                                                     </sub-events>
                                                 </event-block>
@@ -947,6 +990,36 @@
                                                 </action>
                                             </actions>
                                         </event-block>
+                                        <event-block>
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" type="head">
+                                                    <param id="0" name="Instance variable">player_number</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-11" name="Subtract from" type="System">
+                                                    <param id="0" name="Variable">player0HeadCount</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block>
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" type="head">
+                                                    <param id="0" name="Instance variable">player_number</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-11" name="Subtract from" type="System">
+                                                    <param id="0" name="Variable">player1HeadCount</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
                                     </sub-events>
                                 </event-block>
                             </sub-events>
@@ -988,5 +1061,42 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-block>
+            <conditions>
+                <condition id="-1" name="Every tick" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <comment>TOdO: go to result screen!</comment>
+                <event-block>
+                    <conditions>
+                        <condition id="-14" name="Compare variable" type="System">
+                            <param id="0" name="Variable">player0HeadCount</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" type="System">
+                            <param id="0" name="Layout">startscreen</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="-14" name="Compare variable" type="System">
+                            <param id="0" name="Variable">player1HeadCount</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" type="System">
+                            <param id="0" name="Layout">startscreen</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
     </events>
 </c2eventsheet>
