@@ -429,10 +429,14 @@
         <global-instance type="Mouse" />
     </global-instances>
     <sounds-folder expanded="1">
-        <file name="pflopp1.m4a" />
-        <file name="pflopp2.m4a" />
-        <file name="rattlesnake.m4a" />
-        <file name="wind.m4a" />
+        <file name="pflopp1.ogg" />
+        <file name="pflopp1.wav" />
+        <file name="pflopp2.ogg" />
+        <file name="pflopp2.wav" />
+        <file name="rattlesnake.ogg" />
+        <file name="rattlesnake.wav" />
+        <file name="wind.ogg" />
+        <file name="wind.wav" />
     </sounds-folder>
     <music-folder expanded="1" />
 </c2project>
