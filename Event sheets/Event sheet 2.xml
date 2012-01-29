@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 2</name>
     <events>
+        <include>Event sheet 3</include>
         <event-block>
             <conditions>
                 <condition id="-2" name="On start of layout" type="System" />
