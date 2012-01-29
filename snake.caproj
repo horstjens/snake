@@ -6,6 +6,7 @@
     <saved-with-version>7700</saved-with-version>
     <used-plugins>
         <plugin id="Arr" version="1">Array</plugin>
+        <plugin id="Audio" version="1">Audio</plugin>
         <plugin id="Keyboard" version="1">Keyboard</plugin>
         <plugin id="Mouse" version="1">Mouse</plugin>
         <plugin id="Sprite" version="1">Sprite</plugin>
@@ -431,6 +432,12 @@
         <object-type name="Text3">
             <plugin id="Text" />
         </object-type>
+        <object-type name="Audio">
+            <plugin id="Audio" />
+        </object-type>
+        <object-type name="debugtexthorst">
+            <plugin id="Text" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder expanded="1">
@@ -450,7 +457,21 @@
         <global-instance type="Keyboard" />
         <global-instance type="ChromeConsole" />
         <global-instance type="Mouse" />
+        <global-instance type="Audio">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+            </properties>
+        </global-instance>
     </global-instances>
-    <sounds-folder expanded="1" />
+    <sounds-folder expanded="1">
+        <file name="pflopp1.ogg" />
+        <file name="pflopp1.wav" />
+        <file name="pflopp2.ogg" />
+        <file name="pflopp2.wav" />
+        <file name="rattlesnake.ogg" />
+        <file name="rattlesnake.wav" />
+        <file name="wind.ogg" />
+        <file name="wind.wav" />
+    </sounds-folder>
     <music-folder expanded="1" />
 </c2project>
