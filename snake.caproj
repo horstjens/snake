@@ -456,6 +456,7 @@
         <event-sheet>startscreen events.xml</event-sheet>
         <event-sheet>creditscreen events.xml</event-sheet>
         <event-sheet>helpscreen events.xml</event-sheet>
+        <event-sheet>Event sheet 3.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" />
