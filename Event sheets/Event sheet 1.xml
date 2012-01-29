@@ -1078,7 +1078,7 @@
                     </conditions>
                     <actions>
                         <action id="-2" name="Go to layout" type="System">
-                            <param id="0" name="Layout">startscreen</param>
+                            <param id="0" name="Layout">result</param>
                         </action>
                     </actions>
                 </event-block>
@@ -1092,7 +1092,7 @@
                     </conditions>
                     <actions>
                         <action id="-2" name="Go to layout" type="System">
-                            <param id="0" name="Layout">startscreen</param>
+                            <param id="0" name="Layout">result</param>
                         </action>
                     </actions>
                 </event-block>

@@ -7,7 +7,7 @@
         <variable comment="cool down time in secs for player0" name="cooldowntime0" type="number">2</variable>
         <variable comment="cooldown for player1 before he can spit again" name="cooldown1" type="number">0</variable>
         <variable comment="cooldown for player0 before he can spit again" name="cooldown0" type="number">0</variable>
-        <include>Event sheet 3</include>
+        <include>resultscreen events</include>
         <event-block>
             <conditions>
                 <condition id="-2" name="On start of layout" type="System" />

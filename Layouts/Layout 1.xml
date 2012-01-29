@@ -72,7 +72,7 @@
                         <width>80</width>
                         <height>64</height>
                         <depth>0</depth>
-                        <hotspotX>0.472972959</hotspotX>
+                        <hotspotX>0.474999994</hotspotX>
                         <hotspotY>0.53125</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
@@ -268,7 +268,7 @@
                 <instance type="DebugText1">
                     <properties>
                         <text>Text</text>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <font>Arial,-16</font>
                         <color>0,0,0</color>
                         <horizontal-alignment>Left</horizontal-alignment>
@@ -316,7 +316,7 @@
                         <width>74</width>
                         <height>64</height>
                         <depth>0</depth>
-                        <hotspotX>0.472972959</hotspotX>
+                        <hotspotX>0.474999994</hotspotX>
                         <hotspotY>0.53125</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
@@ -325,7 +325,7 @@
                 <instance type="DebugText2">
                     <properties>
                         <text>Text</text>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <font>Arial,-16</font>
                         <color>0,0,0</color>
                         <horizontal-alignment>Left</horizontal-alignment>
@@ -421,7 +421,7 @@
                 <instance type="DebugText3">
                     <properties>
                         <text>Text</text>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <font>Arial,-16</font>
                         <color>0,0,0</color>
                         <horizontal-alignment>Left</horizontal-alignment>

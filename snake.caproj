@@ -12,8 +12,8 @@
         <plugin id="Mouse" version="1">Mouse</plugin>
         <plugin id="Sprite" version="1">Sprite</plugin>
         <plugin id="TextBox" version="1">Text box</plugin>
-        <plugin id="Text" version="1">Text</plugin>
         <plugin id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin id="Text" version="1">Text</plugin>
         <plugin id="chromeconsole" version="0.100000001">Chrome Console</plugin>
     </used-plugins>
     <used-behaviors>
@@ -445,6 +445,15 @@
             <plugin id="TiledBg" />
             <texture />
         </object-type>
+        <object-type name="winLooseSprite">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder expanded="1">
@@ -452,6 +461,7 @@
         <layout>startscreen.xml</layout>
         <layout>creditscreen.xml</layout>
         <layout>helpscreen.xml</layout>
+        <layout>result.xml</layout>
     </layout-folder>
     <event-folder expanded="1">
         <event-sheet>Event sheet 1.xml</event-sheet>
@@ -459,6 +469,7 @@
         <event-sheet>startscreen events.xml</event-sheet>
         <event-sheet>creditscreen events.xml</event-sheet>
         <event-sheet>helpscreen events.xml</event-sheet>
+        <event-sheet>resultscreen events.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" />
