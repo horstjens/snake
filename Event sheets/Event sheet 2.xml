@@ -3,12 +3,25 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 2</name>
     <events>
+        <variable comment="cool down time in secs for player1" name="cooldowntime1" type="number">2</variable>
+        <variable comment="cool down time in secs for player0" name="cooldowntime0" type="number">2</variable>
+        <variable comment="cooldown for player1 before he can spit again" name="cooldown1" type="number">0</variable>
+        <variable comment="cooldown for player0 before he can spit again" name="cooldown0" type="number">0</variable>
         <include>Event sheet 3</include>
         <event-block>
             <conditions>
                 <condition id="-2" name="On start of layout" type="System" />
             </conditions>
-            <actions />
+            <actions>
+                <action id="-9" name="Set value" type="System">
+                    <param id="0" name="Variable">cooldown0</param>
+                    <param id="1" name="Value">time</param>
+                </action>
+                <action id="-9" name="Set value" type="System">
+                    <param id="0" name="Variable">cooldown1</param>
+                    <param id="1" name="Value">time</param>
+                </action>
+            </actions>
             <sub-events>
                 <event-block>
                     <conditions>
@@ -147,6 +160,11 @@
                         <condition id="-8" name="Is boolean instance variable set" type="head">
                             <param id="0" name="Instance variable">enabled</param>
                         </condition>
+                        <condition id="-8" name="Compare two values" type="System">
+                            <param id="0" name="First value">time - cooldown0</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">cooldowntime0</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="0" name="Spawn another object" type="head">
@@ -171,6 +189,13 @@
                         <action id="-10" name="Set value" type="spit">
                             <param id="0" name="Instance variable">playerOriginNumber</param>
                             <param id="1" name="Value">head.player_number</param>
+                        </action>
+                        <action id="-9" name="Set value" type="System">
+                            <param id="0" name="Variable">cooldown0</param>
+                            <param id="1" name="Value">time</param>
+                        </action>
+                        <action disabled="1" id="0" name="Set text" type="debugtexthorst">
+                            <param id="0" name="Text">&quot;time:&quot; &amp; time</param>
                         </action>
                     </actions>
                 </event-block>
@@ -187,6 +212,11 @@
                         <condition id="-8" name="Is boolean instance variable set" type="head">
                             <param id="0" name="Instance variable">enabled</param>
                         </condition>
+                        <condition id="-8" name="Compare two values" type="System">
+                            <param id="0" name="First value">time - cooldown1</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">cooldowntime1</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="0" name="Spawn another object" type="head">
@@ -211,6 +241,10 @@
                         <action id="-10" name="Set value" type="spit">
                             <param id="0" name="Instance variable">playerOriginNumber</param>
                             <param id="1" name="Value">head.player_number</param>
+                        </action>
+                        <action id="-9" name="Set value" type="System">
+                            <param id="0" name="Variable">cooldown1</param>
+                            <param id="1" name="Value">time</param>
                         </action>
                     </actions>
                 </event-block>
