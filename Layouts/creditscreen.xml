@@ -134,7 +134,7 @@
                 <instance type="HorstText">
                     <properties>
                         <text>Horst JENS (2nd coder, designer)</text>
-                        <initial-visibility>Invisible</initial-visibility>
+                        <initial-visibility>Visible</initial-visibility>
                         <font>Arial,-24,400,0</font>
                         <color>255,66,0</color>
                         <horizontal-alignment>Left</horizontal-alignment>
